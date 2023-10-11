@@ -11,22 +11,17 @@ func _init() -> void:
 func _get_name() -> String:
 	return "Flipbook"
 
-
 func _get_category() -> String:
 	return "UV"
-
 
 func _get_description() -> String:
 	return "Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV."
 
-
 func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
-
 func _get_input_port_count() -> int:
 	return 6
-
 
 func _get_input_port_name(port: int) -> String:
 	match port:
@@ -37,13 +32,12 @@ func _get_input_port_name(port: int) -> String:
 		2:
 			return "columns"
 		3:
-			return "start_frame"
+			return "start frame"
 		4:
-			return "end_frame"
+			return "end frame"
 		5:
-			return "anim_speed"
+			return "anim speed"
 	return ""
-
 
 func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 	match port:
@@ -55,14 +49,11 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 			return PORT_TYPE_SCALAR
 	return PORT_TYPE_SCALAR
 
-
 func _get_output_port_count() -> int:
 	return 1
 
-
 func _get_output_port_name(port: int) -> String:
 	return "uv"
-
 
 func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
