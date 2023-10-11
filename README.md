@@ -28,3 +28,19 @@ This node can be used to create a texture animation functionality, commonly used
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
 ___
+#### Radial Shear uv node
+Applies a radial shear warping effect similar to a wave to the value of input UV.
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|center|vec2|none|Center reference point|
+|strength|float|none|Strength of the effect|
+|offset|vec2|none|Individual channel offsets|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
