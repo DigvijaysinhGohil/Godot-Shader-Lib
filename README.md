@@ -91,3 +91,19 @@ Tiles and offsets the value of input UV by the inputs **_tiling_** and **_offset
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
 ___
+#### Twirl node
+Applies a twirl warping effect similar to a black hole to the value of input UV.
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|center|vec2|none|Center reference point|
+|strength|float|none|Strength of the effect|
+|offset|vec2|none|Individual channel offsets|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
