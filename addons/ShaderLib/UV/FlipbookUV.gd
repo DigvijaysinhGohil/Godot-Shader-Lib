@@ -8,6 +8,8 @@ func _init() -> void:
 	set_input_port_default_value(4, 0)
 	set_input_port_default_value(5, 0.1)
 
+	set_output_port_for_preview(0)
+
 func _get_name() -> String:
 	return "Flipbook"
 
