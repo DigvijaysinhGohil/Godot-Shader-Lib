@@ -76,3 +76,18 @@ Applies a spherical warping effect similar to a fisheye camera lens to the value
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
 ___
+#### Tiling and Offset node
+Tiles and offsets the value of input UV by the inputs **_tiling_** and **_offset_** respectively. This is commonly used for detail maps and scrolling textures over TIME.
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|tiling|vec2|none|Amount of tiling to apply per channel|
+|offset|vec2|none|Amount of offset to apply per channel|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
