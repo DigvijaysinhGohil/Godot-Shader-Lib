@@ -9,7 +9,7 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 ## Nodes documentation
 ### UV nodes
 ___
-#### Flipbook uv node
+#### Flipbook node
 Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV. The amount of tiles on the sheet are defined by the values of the inputs **_rows_** and **_columns_**.
 This node can be used to create a texture animation functionality, commonly used for particle effects and sprites, by supplying Time to the input Tile and outputting to the UV input slot of a Texture Sampler.
 
@@ -28,7 +28,7 @@ This node can be used to create a texture animation functionality, commonly used
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
 ___
-#### Radial Shear uv node
+#### Radial Shear node
 Applies a radial shear warping effect similar to a wave to the value of input UV.
 
 **Inputs**
@@ -38,6 +38,22 @@ Applies a radial shear warping effect similar to a wave to the value of input UV
 |center|vec2|none|Center reference point|
 |strength|float|none|Strength of the effect|
 |offset|vec2|none|Individual channel offsets|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
+#### Rotate node
+Rotates value of input UV around a reference point defined by input **_center_** by the amount of input **_rotation_**.
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|center|vec2|none|Center reference point|
+|rotation|float|none|Rotation amount in radians|
+|use degrees|bool|none|Use degrees instead of radians for **_rotation_** amount|
 
 **Outputs**
 |Name|Type|Binding|Description|
