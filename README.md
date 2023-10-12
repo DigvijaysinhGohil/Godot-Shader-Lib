@@ -3,7 +3,7 @@ Visual shader node library for Godot engine.
 
 Adds various extra nodes to use in built-in visual shader editor.
 ## Installation
-Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standart visual shader nodes.
+Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standard visual shader nodes.
 ## Uninstallation
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 ## Nodes documentation
