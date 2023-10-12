@@ -60,3 +60,19 @@ Rotates value of input UV around a reference point defined by input **_center_**
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
 ___
+#### Spherize node
+Applies a spherical warping effect similar to a fisheye camera lens to the value of input UV.
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|center|vec2|none|Center reference point|
+|strength|float|none|Strength of the effect|
+|offset|vec2|none|Individual channel offsets|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
