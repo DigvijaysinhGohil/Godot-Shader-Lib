@@ -10,6 +10,24 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <details>
 <summary><h1>Procedural nodes</h1></summary>
 <details>
+<summary><h3>Checker Board node</h3></summary>
+Generates a checkerboard of alternating colors between inputs **_color A_** and **_color B_** based on input UV.
+  
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|color a|vec3|none|First checker color|
+|color b|vec3|none|Second checker color|
+|frequency|vec2|none|Scale of checkerboard per axis|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|output|vec3|None|Output checkerboard value|
+___
+</details>
+<details>
 <summary><h2>Noise</h2></summary>
 <details>
 <summary><h3>Gradient Noise node</h3></summary>
