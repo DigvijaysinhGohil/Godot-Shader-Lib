@@ -12,4 +12,4 @@ config_version=5
 
 config/name="Godot-shader-lib"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icons/icon.png"
