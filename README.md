@@ -49,7 +49,7 @@ ___
 </details>
 <details>
 <summary><h3>Simple Noise node</h3></summary>
-Generates a simple, or Value, noise based on input UV. The resulting <b><i>output</i></b> values will be between 0 and 1.
+Generates a simplex, or value noise based on input UV. The resulting <b><i>output</i></b> values will be between 0 and 1.
 <hr>
 
 **Inputs**
@@ -113,7 +113,7 @@ Generates a regular polygon shape based on input UV at the size specified by inp
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |uv|vec2|UV|Input UV value|
-|sides|int|none|Amount of sides|
+|sides|int|none|Number of sides of the polygon|
 |width|float|none|Polygon width|
 |height|float|none|Polygon height|
   
@@ -142,6 +142,26 @@ Generates a rectangle shape based on input UV at the size specified by inputs <b
 ___
 </details>
 <details>
+<summary><h3>Rounded Polygon node</h3></summary>
+Generates a rounded polygon shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The polygon's amount of sides is determined by input <b><i>sides</i></b>. The radius of each corner is defined by input <b><i>roundnesss</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rounded polygon effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|width|float|none|Rounded polygon width|
+|height|float|none|Rounded polygon height|
+|sides|int|none|Number of sides of the polygon|
+|roundness|float|none|Corner radius|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|output|float|None|Output rounded polygon value|
+___
+</details>
+<details>
 <summary><h3>Rounded Rectangle node</h3></summary>
 Generates a rounded rectangle shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The radius of each corner is defined by input <b><i>radius</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rounded rectangle effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
 <hr>
@@ -157,7 +177,7 @@ Generates a rounded rectangle shape based on input UV at the size specified by i
 **Outputs**
 |Name|Type|Binding|Description|
 |---|---|---|---|
-|output|float|None|Output rectangle value|
+|output|float|None|Output rounded rectangle value|
 ___
 </details>
 </details>
