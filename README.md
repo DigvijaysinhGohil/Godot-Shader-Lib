@@ -7,7 +7,7 @@ Copy the contents of **_addons/ShaderLib_** into the same folder in your project
 # Uninstallation
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 # Nodes documentation
-<details>
+<details open="">
 <summary><h1>Procedural nodes</h1></summary>
 <details>
 <summary><h3>Checker Board node</h3></summary>
@@ -182,7 +182,7 @@ ___
 </details>
 </details>
 </details>
-<details>
+<details open="">
 <summary><h1>UV nodes</h1></summary>
 <details>
 <summary><h3>Flipbook node</h3></summary>
