@@ -13,7 +13,7 @@ func _get_category() -> String:
 	return "Procedural/Noise"
 
 func _get_description() -> String:
-	return "Generates a simple, or Value, noise based on input UV."
+	return "Generates a simplex, or value noise based on input UV."
 
 func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_SCALAR
