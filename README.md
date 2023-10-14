@@ -32,7 +32,7 @@ ___
 <summary><h2>Noise</h2></summary>
 <details>
 <summary><h3>Gradient Noise node</h3></summary>
-Generates a gradient, or Perlin, noise based on input UV. The resulting <b><i>output</i></b> values will be between -1 and 1.
+Generates a gradient, or Perlin noise based on input UV. The resulting <b><i>output</i></b> values will be between -1 and 1.
 <hr>
 
 **Inputs**
