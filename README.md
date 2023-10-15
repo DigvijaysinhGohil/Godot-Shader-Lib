@@ -8,6 +8,77 @@ Copy the contents of **_addons/ShaderLib_** into the same folder in your project
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 # Nodes documentation
 <details open="">
+<summary><h1>Maths nodes</h1></summary>
+<details>
+<summary><h2>Wave</h2></summary>
+<details>
+<summary><h3>Noise Sine Wave node</h3></summary>
+Returns the sine of the value of input <b><i>in</i></b>. For variance, psuedo-random noise is added to the amplitude of the sine wave, within a range determined by input <b><i>min max</i></b>.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|in|Dynamic vector|none|Input value|
+|min max|vec2|none|Minimum and Maximum values for noise intensity|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|out|Dynamic vector|None|Output value|
+___
+</details>
+<details>
+<summary><h3>Sawtooth Wave node</h3></summary>
+Returns a sawtooth wave from the value of input <b><i>in</i></b>. Resulting output values will be between -1 and 1.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|in|Dynamic vector|none|Input value|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|out|Dynamic vector|None|Output value|
+___
+</details>
+<details>
+<summary><h3>Square Wave node</h3></summary>
+Returns a square wave from the value of input <b><i>in</i></b>. Resulting output values will be between -1 and 1.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|in|Dynamic vector|none|Input value|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|out|Dynamic vector|None|Output value|
+___
+</details>
+<details>
+<summary><h3>Triangle Wave node</h3></summary>
+Returns a triangle wave from the value of input <b><i>in</i></b>. Resulting output values will be between -1 and 1.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|in|Dynamic vector|none|Input value|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|out|Dynamic vector|None|Output value|
+___
+</details>
+</details>
+</details>
+<details open="">
 <summary><h1>Procedural nodes</h1></summary>
 <details>
 <summary><h3>Checker Board node</h3></summary>
