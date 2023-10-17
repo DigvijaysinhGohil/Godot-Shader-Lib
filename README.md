@@ -11,7 +11,7 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 # Nodes documentation
 <details open="">
 <summary><h1>Maths nodes</h1></summary>
-<details>
+<details open>
 <summary><h2>Wave</h2></summary>
 <details>
 <summary><h3>Noise Sine Wave node</h3></summary>
@@ -80,6 +80,7 @@ ___
 </details>
 </details>
 </details>
+<hr>
 <details open="">
 <summary><h1>Procedural nodes</h1></summary>
 <details>
@@ -101,7 +102,7 @@ Generates a checkerboard of alternating colors between inputs <b><i>color A</i><
 |output|vec3|None|Output checkerboard value|
 ___
 </details>
-<details>
+<details open>
 <summary><h2>Noise</h2></summary>
 <details>
 <summary><h3>Gradient Noise node</h3></summary>
@@ -157,7 +158,7 @@ Generates a Voronoi or Worley noise based on input UV. Voronoi noise is generate
 ___
 </details>
 </details>
-<details>
+<details open>
 <summary><h2>Shapes</h2></summary>
 <details>
 <summary><h3>Ellipse node</h3></summary>
@@ -255,6 +256,7 @@ ___
 </details>
 </details>
 </details>
+<hr>
 <details open="">
 <summary><h1>UV nodes</h1></summary>
 <details>
