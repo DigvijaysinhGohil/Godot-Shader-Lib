@@ -162,7 +162,7 @@ ___
 <summary><h2>Shapes</h2></summary>
 <details>
 <summary><h3>Ellipse node</h3></summary>
-Generates an ellipse shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating dot effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
+Generates an ellipse shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating dot effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
 <hr>
 
 **Inputs**
@@ -180,7 +180,7 @@ ___
 </details>
 <details>
 <summary><h3>Polygon node</h3></summary>
-Generates a regular polygon shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The polygon's amount of sides is determined by input <b><i>sides</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating polygon effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
+Generates a regular polygon shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i></b>. The polygon's amount of sides is determined by input <b><i>sides</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating polygon effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
 <hr>
 
 **Inputs**
@@ -199,7 +199,7 @@ ___
 </details>
 <details>
 <summary><h3>Rectangle node</h3></summary>
-Generates a rectangle shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rectangle effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
+Generates a rectangle shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rectangle effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
 <hr>
 
 **Inputs**
@@ -217,7 +217,7 @@ ___
 </details>
 <details>
 <summary><h3>Rounded Polygon node</h3></summary>
-Generates a rounded polygon shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The polygon's amount of sides is determined by input <b><i>sides</i></b>. The radius of each corner is defined by input <b><i>roundnesss</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rounded polygon effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
+Generates a rounded polygon shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i></b>. The polygon's amount of sides is determined by input <b><i>sides</i></b>. The radius of each corner is defined by input <b><i>roundnesss</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rounded polygon effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
 <hr>
 
 **Inputs**
@@ -237,7 +237,7 @@ ___
 </details>
 <details>
 <summary><h3>Rounded Rectangle node</h3></summary>
-Generates a rounded rectangle shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i><b>. The radius of each corner is defined by input <b><i>radius</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rounded rectangle effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
+Generates a rounded rectangle shape based on input UV at the size specified by inputs <b><i>width</i></b> and <b><i>height</i></b>. The radius of each corner is defined by input <b><i>radius</i></b>. The generated shape can be offset or tiled by connecting a <b><i>TilingAndOffset</i></b> node. Note that in order to preserve the ability to offset the shape within the UV space the shape will not automatically repeat if tiled. To achieve a repeating rounded rectangle effect first connect your <b><i>TilingAndOffset</i></b> output through a <b><i>Fract</i></b> node.
 <hr>
 
 **Inputs**
@@ -262,7 +262,7 @@ ___
 <details>
 <summary><h3>Flipbook node</h3></summary>
 Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV. The amount of tiles on the sheet are defined by the values of the inputs <b><i>rows</i></b> and <b><i>columns</i></b>.
-This node can be used to create a texture animation functionality, commonly used for particle effects and sprites, by supplying Time to the input Tile and outputting to the UV input slot of a Texture Sampler.
+This node can be used to create a texture animation functionality, commonly used for particle effects and sprites.
 <hr>
 
 **Inputs**
