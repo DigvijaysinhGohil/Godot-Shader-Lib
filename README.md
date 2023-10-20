@@ -81,6 +81,20 @@ ___
 </details>
 </details>
 <hr>
+<details open>
+<summary><h1>Input nodes</h1></summary>
+<details>
+<summary><h3>Node Scale World node</h3></summary>
+Provides accees to node scale in world space.
+<hr>
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|output|vec3|None|Node/object scale in world space|
+___
+</details>
+</details>
+<hr>
 <details open="">
 <summary><h1>Procedural nodes</h1></summary>
 <details>
