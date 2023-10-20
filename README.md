@@ -9,7 +9,7 @@ If you don't immediatly see new nodes under **_Addons_** category, simply reload
 # Uninstallation
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 # Nodes documentation
-<details open="">
+<details open>
 <summary><h1>Maths nodes</h1></summary>
 <details open>
 <summary><h2>Wave</h2></summary>
@@ -91,12 +91,12 @@ Provides accees to node scale in world space.
 **Outputs**
 |Name|Type|Binding|Description|
 |---|---|---|---|
-|output|vec3|None|Node/object scale in world space|
+|scale|vec3|None|Node/object scale in world space|
 ___
 </details>
 </details>
 <hr>
-<details open="">
+<details open>
 <summary><h1>Procedural nodes</h1></summary>
 <details>
 <summary><h3>Checker Board node</h3></summary>
@@ -272,7 +272,7 @@ ___
 </details>
 </details>
 <hr>
-<details open="">
+<details open>
 <summary><h1>UV nodes</h1></summary>
 <details>
 <summary><h3>Flipbook node</h3></summary>
