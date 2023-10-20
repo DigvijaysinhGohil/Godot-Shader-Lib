@@ -28,6 +28,15 @@ func _get_output_port_name(port: int) -> String:
 func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_3D
 
+func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
+	match mode:
+		0:
+			return true
+		1:
+			return type==0
+		_:
+			return false
+
 func _get_global_code(mode: Shader.Mode) -> String:
 	var code: String = preload("NodeScaleWorld.gdshaderinc").code
 	return code
