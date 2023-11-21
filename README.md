@@ -274,9 +274,11 @@ ___
 <hr>
 <details open>
 <summary><h1>UV nodes</h1></summary>
+Default value for uv input will be vec2(0, 0) for shader modes <i>PARTICLES</i>, <i>SKY</i> and <i>FOG</i> to avoid errors becouse UV variable is not available for these modes.
 <details>
 <summary><h3>Flipbook node</h3></summary>
-Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV. The amount of tiles on the sheet are defined by the values of the inputs <b><i>rows</i></b> and <b><i>columns</i></b>.
+Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV. The amount of tiles on the sheet are defined by the values of the inputs <b><i>rows</i></b> and <b><i>columns</i></b>.<br>
+<i>This node is only available in shader modes SPATIAL and CANVAS ITEM.</i>
 This node can be used to create a texture animation functionality, commonly used for particle effects and sprites.
 <hr>
 
