@@ -48,7 +48,13 @@ func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
-	var uv: String = "UV"
+	var uv: String
+
+	match mode:
+		0, 1:
+			uv = "UV"
+		_:
+			uv = "vec2(0.0)"
 
 	if input_vars[0]:
 		uv = input_vars[0]
