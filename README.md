@@ -356,7 +356,7 @@ ___
 </details>
 <details>
 <summary><h3>Swirl node</h3></summary>
-Applies a Swirl warping effect similar to a black hole to the value of input UV. Very similar to <b><i>Twirl node</b></i>, key difference is it uses the inverse of vector length (One minus).
+Applies a swirl warping effect similar to a black hole to the value of input UV. Very similar to <b><i>Twirl node</b></i>, key difference is it uses the inverse of vector length (One minus).
 <hr>
 
 **Inputs**
