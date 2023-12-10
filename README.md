@@ -355,6 +355,25 @@ Applies a spherical warping effect similar to a fisheye camera lens to the value
 ___
 </details>
 <details>
+<summary><h3>Swirl node</h3></summary>
+Applies a Swirl warping effect similar to a black hole to the value of input UV. Very similar to <b><i>Twirl node</b></i>, key difference is it uses the inverse of vector length (One minus).
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|center|vec2|none|Center reference point|
+|strength|float|none|Strength of the effect|
+|offset|vec2|none|Individual channel offsets|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
+</details>
+<details>
 <summary><h3>Tiling and Offset node</h3></summary>
 Tiles and offsets the value of input UV by the inputs <b><i>tiling</i></b> and <b><i>offset</i></b> respectively. This is commonly used for detail maps and scrolling textures over TIME.
 <hr>
@@ -374,7 +393,7 @@ ___
 </details>
 <details>
 <summary><h3>Twirl node</h3></summary>
-Applies a twirl warping effect similar to a black hole to the value of input UV.
+Applies a twirl warping effect similar to a black hole to the value of input UV. Very similar to <b><i>Swirl node</b></i>, key difference is it uses the length of a vector.
 <hr>
 
 **Inputs**
