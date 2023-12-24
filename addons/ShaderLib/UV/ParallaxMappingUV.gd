@@ -43,6 +43,13 @@ func _get_output_port_name(port: int) -> String:
 func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
+func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
+	match mode:
+		0, 1:
+			return true
+		_:
+			return false
+
 func _get_global_code(mode: Shader.Mode) -> String:
 	var code: String = preload("ParallaxMappingUV.gdshaderinc").code
 	return code

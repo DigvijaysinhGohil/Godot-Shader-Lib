@@ -314,6 +314,23 @@ This node can be used to create a texture animation functionality, commonly used
 ___
 </details>
 <details>
+<summary><h3>Parallax mapping node</h3></summary>
+The Parallax Mapping node lets you create a parallax effect that displaces a Material's UVs to create the illusion of depth inside a Material.<br><br><i>This node is only available in shader modes SPATIAL and CANVAS ITEM.</i>
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|height map|sampler2D|none|Height map texture|
+|amplitude|float|none|amplitude or depth of the effect|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
+</details>
+<details>
 <summary><h3>Radial Shear node</h3></summary>
 Applies a radial shear warping effect similar to a wave to the value of input UV.
 <hr>
