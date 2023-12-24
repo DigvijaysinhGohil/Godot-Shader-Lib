@@ -52,5 +52,4 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 	var amplitude: String = input_vars[1]
 	if !height_map:
 		return output_vars[0] + " = UV;"
-
-	return output_vars[0] + " = parallax_mapping_uv(%s, %s, CAMERA_DIRECTION_WORLD, INV_VIEW_MATRIX, UV);" % [height_map, amplitude];
+	return output_vars[0] + " = parallax_mapping_uv(%s, -%s, UV, TANGENT, NORMAL, BINORMAL, VIEW);" % [height_map, amplitude];
