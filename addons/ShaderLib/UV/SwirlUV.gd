@@ -1,5 +1,5 @@
 @tool
-class_name VisualShaderNodeUVTwirl extends VisualShaderNodeCustom
+class_name VisualShaderNodeUVSwirl extends VisualShaderNodeCustom
 
 func _init() -> void:
 	_set_input_port_default_value(1, Vector2(0.5, 0.5))
@@ -9,13 +9,13 @@ func _init() -> void:
 	output_port_for_preview = 0
 
 func _get_name() -> String:
-	return "Twirl"
+	return "Swirl"
 
 func _get_category() -> String:
 	return "UV"
 
 func _get_description() -> String:
-	return "Applies a twirl warping effect similar to a black hole to the value of input UV."
+	return "Applies a swirl warping effect similar to a black hole to the value of input UV."
 
 func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
@@ -53,7 +53,7 @@ func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("TwirlUV.gdshaderinc").code
+	var code: String = preload("SwirlUV.gdshaderinc").code
 	return code
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
@@ -72,4 +72,4 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 	var strength: String = input_vars[2]
 	var offset: String = input_vars[3]
 
-	return output_vars[0] + " = twirl_uv(%s, %s, %s, %s);" % [uv, center, strength, offset]
+	return output_vars[0] + " = swirl_uv(%s, %s, %s, %s);" % [uv, center, strength, offset]

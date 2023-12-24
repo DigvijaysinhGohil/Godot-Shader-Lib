@@ -64,8 +64,21 @@ func _get_global_code(mode: Shader.Mode) -> String:
 	var code: String = preload("FlipbookUV.gdshaderinc").code
 	return code
 
+func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
+	match mode:
+		0, 1:
+			return true
+		_:
+			return false
+
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
-	var uv: String = "UV"
+	var uv: String
+
+	match mode:
+		0, 1:
+			uv = "UV"
+		_:
+			uv = "vec2(0.0)"
 
 	if input_vars[0]:
 		uv = input_vars[0]

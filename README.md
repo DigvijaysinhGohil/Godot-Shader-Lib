@@ -1,5 +1,5 @@
 # Godot-Shader-Lib
-Visual shader node library for Godot engine.
+Visual shader node library for Godot engine. The addon supports Godot versions 4.x!
 
 Adds various extra nodes to use in built-in visual shader editor.
 # Installation
@@ -9,7 +9,22 @@ If you don't immediatly see new nodes under **_Addons_** category, simply reload
 # Uninstallation
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 # Nodes documentation
-<details open="">
+<details open>
+<summary><h1>Geometry nodes</h1></summary>
+<details>
+<summary><h3>Node Scale World node</h3></summary>
+Provides accees to node scale in world space.
+<hr>
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|scale|vec3|None|Node/object scale in world space|
+___
+</details>
+</details>
+<hr>
+<details open>
 <summary><h1>Maths nodes</h1></summary>
 <details open>
 <summary><h2>Wave</h2></summary>
@@ -81,7 +96,7 @@ ___
 </details>
 </details>
 <hr>
-<details open="">
+<details open>
 <summary><h1>Procedural nodes</h1></summary>
 <details>
 <summary><h3>Checker Board node</h3></summary>
@@ -114,6 +129,22 @@ Generates a gradient, or Perlin noise based on input UV. The resulting <b><i>out
 |---|---|---|---|
 |uv|vec2|UV|Input UV value|
 |scale|float|none|Noise scale|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|output|float|None|Output noise value|
+___
+</details>
+<details>
+<summary><h3>Pseudo Random Noise node</h3></summary>
+Generates a pseudo random noise based on input seed. The resulting <b><i>output</i></b> values will be between 0 and 1.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|seed|float|none|Input seed|
   
 **Outputs**
 |Name|Type|Binding|Description|
@@ -257,12 +288,13 @@ ___
 </details>
 </details>
 <hr>
-<details open="">
+<details open>
 <summary><h1>UV nodes</h1></summary>
+Default value for uv input will be vec2(0, 0) for shader modes <i>PARTICLES</i>, <i>SKY</i> and <i>FOG</i> to avoid errors becouse UV variable is not available for these modes.
 <details>
 <summary><h3>Flipbook node</h3></summary>
 Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV. The amount of tiles on the sheet are defined by the values of the inputs <b><i>rows</i></b> and <b><i>columns</i></b>.
-This node can be used to create a texture animation functionality, commonly used for particle effects and sprites.
+This node can be used to create a texture animation functionality, commonly used for particle effects and sprites.<br><br><i>This node is only available in shader modes SPATIAL and CANVAS ITEM.</i>
 <hr>
 
 **Inputs**
@@ -274,6 +306,23 @@ This node can be used to create a texture animation functionality, commonly used
 |start frame|int|none|Start tile index texture sheet|
 |end frame|int|none|End tile index texture sheet|
 |anim speed|float|none|Animation speed|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
+</details>
+<details>
+<summary><h3>Parallax mapping node</h3></summary>
+The Parallax Mapping node lets you create a parallax effect that displaces a Material's UVs to create the illusion of depth inside a Material.<br><br><i>This node is only available in shader modes SPATIAL and CANVAS ITEM.</i>
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|height map|sampler2D|none|Height map texture|
+|amplitude|float|none|amplitude or depth of the effect|
 
 **Outputs**
 |Name|Type|Binding|Description|
@@ -339,6 +388,25 @@ Applies a spherical warping effect similar to a fisheye camera lens to the value
 ___
 </details>
 <details>
+<summary><h3>Swirl node</h3></summary>
+Applies a swirl warping effect similar to a black hole to the value of input UV. Very similar to <b><i>Twirl node</b></i>, key difference is it uses the inverse of vector length (One minus).
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|UV|Input UV value|
+|center|vec2|none|Center reference point|
+|strength|float|none|Strength of the effect|
+|offset|vec2|none|Individual channel offsets|
+
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|uv|vec2|None|Output UV value|
+___
+</details>
+<details>
 <summary><h3>Tiling and Offset node</h3></summary>
 Tiles and offsets the value of input UV by the inputs <b><i>tiling</i></b> and <b><i>offset</i></b> respectively. This is commonly used for detail maps and scrolling textures over TIME.
 <hr>
@@ -358,7 +426,7 @@ ___
 </details>
 <details>
 <summary><h3>Twirl node</h3></summary>
-Applies a twirl warping effect similar to a black hole to the value of input UV.
+Applies a twirl warping effect similar to a black hole to the value of input UV. Very similar to <b><i>Swirl node</b></i>, key difference is it uses the length of a vector.
 <hr>
 
 **Inputs**
