@@ -10,7 +10,7 @@ If you don't immediatly see new nodes under **_Addons_** category, simply reload
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 # Nodes documentation
 <details open>
-<summary><h1>Input nodes</h1></summary>
+<summary><h1>Geometry nodes</h1></summary>
 <details>
 <summary><h3>Node Scale World node</h3></summary>
 Provides accees to node scale in world space.
@@ -129,6 +129,22 @@ Generates a gradient, or Perlin noise based on input UV. The resulting <b><i>out
 |---|---|---|---|
 |uv|vec2|UV|Input UV value|
 |scale|float|none|Noise scale|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|output|float|None|Output noise value|
+___
+</details>
+<details>
+<summary><h3>Pseudo Random Noise node</h3></summary>
+Generates a pseudo random noise based on input seed. The resulting <b><i>output</i></b> values will be between 0 and 1.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|seed|float|none|Input seed|
   
 **Outputs**
 |Name|Type|Binding|Description|

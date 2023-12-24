@@ -1,11 +1,11 @@
 @tool
-class_name VisualShaderNodeInputNodeScaleWorld extends VisualShaderNodeCustom
+class_name VisualShaderNodeGeometryNodeScaleWorld extends VisualShaderNodeCustom
 
 func _get_name() -> String:
 	return "NodeScaleWorld"
 
 func _get_category() -> String:
-	return "Input"
+	return "Geometry"
 
 func _get_description() -> String:
 	return "Provides accees to node scale in world space."
@@ -42,4 +42,4 @@ func _get_global_code(mode: Shader.Mode) -> String:
 	return code
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
-	return output_vars[0] + " = node_scale_world(MODEL_MATRIX);"
+	return output_vars[0] + " = geometry_node_scale_world(MODEL_MATRIX);"
