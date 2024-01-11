@@ -21,7 +21,7 @@ func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
 func _get_input_port_count() -> int:
-	return 4
+	return 3
 
 func _get_input_port_name(port: int) -> String:
 	match port:
@@ -31,8 +31,6 @@ func _get_input_port_name(port: int) -> String:
 			return "center"
 		2:
 			return "rotation"
-		3:
-			return "use degrees"
 	return ""
 
 func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
@@ -41,8 +39,6 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 			return PORT_TYPE_VECTOR_2D
 		2:
 			return PORT_TYPE_SCALAR
-		3:
-			return PORT_TYPE_BOOLEAN
 	return PORT_TYPE_SCALAR
 
 func _get_output_port_count() -> int:
@@ -53,6 +49,18 @@ func _get_output_port_name(port: int) -> String:
 
 func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
+
+func _get_property_count() -> int:
+	return 1
+
+func _get_property_default_index(index: int) -> int:
+	return 0
+
+func _get_property_name(index: int) -> String:
+	return "Units"
+
+func _get_property_options(index: int) -> PackedStringArray:
+	return ["Degrees", "Radians"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
 	var code: String = preload("RotateUV.gdshaderinc").code
@@ -72,6 +80,6 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 
 	var center: String = input_vars[1]
 	var rotation: String = input_vars[2]
-	var use_degrees: String = input_vars[3]
+	var use_degrees: String = "true" if get_option_index(0) == 0 else "false"
 
 	return output_vars[0] + " = rotate_uv(%s, %s, %s, %s);" % [uv, center, rotation, use_degrees]
