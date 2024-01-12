@@ -51,6 +51,9 @@ func _get_property_name(index: int) -> String:
 func _get_property_options(index: int) -> PackedStringArray:
 	return ["Local", "World", "View", "Screen", "Tangent"]
 
+func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
+	return mode == Shader.MODE_SPATIAL
+
 func _get_global_code(mode: Shader.Mode) -> String:
 	var code: String = preload("VectorTransform.gdshaderinc").code
 	return code
