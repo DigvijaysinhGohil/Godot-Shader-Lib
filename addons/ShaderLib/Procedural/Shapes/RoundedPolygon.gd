@@ -2,11 +2,6 @@
 class_name VisualShaderNodeProceduralRoundedPolygon extends VisualShaderNodeCustom
 
 func _init() -> void:
-	_set_input_port_default_value(1, 0.5)
-	_set_input_port_default_value(2, 0.5)
-	_set_input_port_default_value(3, 3)
-	_set_input_port_default_value(4, 1.0)
-
 	output_port_for_preview = 0
 
 func _get_name() -> String:
@@ -44,6 +39,17 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 			return PORT_TYPE_VECTOR_2D
 		_:
 			return PORT_TYPE_SCALAR
+
+func _get_input_port_default_value(port: int) -> Variant:
+	match port:
+		1, 2:
+			return 0.5
+		3:
+			return 3
+		4:
+			return 1.0
+		_:
+			return null
 
 func _get_output_port_count() -> int:
 	return 1

@@ -2,10 +2,6 @@
 class_name VisualShaderNodeUVRadialShear extends VisualShaderNodeCustom
 
 func _init() -> void:
-	_set_input_port_default_value(1, Vector2(0.5, 0.5))
-	_set_input_port_default_value(2, 10.0)
-	_set_input_port_default_value(3, Vector2(0.0, 0.0))
-
 	set_output_port_for_preview(0)
 
 func _get_name() -> String:
@@ -42,6 +38,17 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 		2:
 			return PORT_TYPE_SCALAR
 	return PORT_TYPE_SCALAR
+
+func _get_input_port_default_value(port: int) -> Variant:
+	match port:
+		1:
+			return Vector2(0.5, 0.5)
+		2:
+			return 10.0
+		3:
+			return Vector2(0.0, 0.0)
+		_:
+			return null
 
 func _get_output_port_count() -> int:
 	return 1

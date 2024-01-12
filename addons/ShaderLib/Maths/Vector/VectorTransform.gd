@@ -1,9 +1,6 @@
 @tool
 class_name VisualShaderNodeVectorTransform extends VisualShaderNodeCustom
 
-func _init() -> void:
-	_set_input_port_default_value(0, Vector3(0.0, 0.0, 0.0))
-
 func _get_name() -> String:
 	return "VectorTransform"
 
@@ -24,6 +21,13 @@ func _get_input_port_name(port: int) -> String:
 
 func _get_input_port_type(port: int) -> PortType:
 	return PORT_TYPE_VECTOR_3D
+
+func _get_input_port_default_value(port: int) -> Variant:
+	match port:
+		0:
+			return Vector3(0.0, 0.0, 0.0)
+		_:
+			return null
 
 func _get_output_port_count() -> int:
 	return 1
