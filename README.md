@@ -1,5 +1,5 @@
 # Godot-Shader-Lib
-Visual shader node library for Godot engine. The addon supports Godot versions 4.x!
+Visual shader node library for Godot engine. The addon supports Godot versions 4.1.0 and above!
 
 Adds various extra nodes to use in built-in visual shader editor.
 # Installation
