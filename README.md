@@ -27,6 +27,30 @@ ___
 <details open>
 <summary><h1>Maths nodes</h1></summary>
 <details open>
+<summary><h2>Vector</h2></summary>
+<details>
+<summary><h3>Vector Transform node</h3></summary>
+Returns the transformed vector of the input value <i><b>in</b></i> from one coordinate space to another.
+<hr>
+
+**Inputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|in|vector3|none|Input vector|
+
+**Controls**
+|Name|Options|Description|
+|---|---|---|
+|From|Local, World, View, Screen, Tangent|Coordinate space from which you want to transform the input vector|
+|To|Local, World, View, Screen, Tangent|Coordinate space to which you want to transform the input vector|
+  
+**Outputs**
+|Name|Type|Binding|Description|
+|---|---|---|---|
+|out|vector3|None|Output vector|
+___
+</details>
+</details>
 <summary><h2>Wave</h2></summary>
 <details>
 <summary><h3>Noise Sine Wave node</h3></summary>
@@ -360,7 +384,11 @@ Rotates value of input UV around a reference point defined by input <b><i>center
 |uv|vec2|UV|Input UV value|
 |center|vec2|none|Center reference point|
 |rotation|float|none|Rotation amount in radians|
-|use degrees|bool|none|Use degrees instead of radians for <b><i>rotation</i></b> amount|
+
+**Controls**
+|Name|Options|Description|
+|---|---|---|
+|Units|Degrees, Radians|Specifies the unit for <i><b>rotation</b></i> input|
 
 **Outputs**
 |Name|Type|Binding|Description|

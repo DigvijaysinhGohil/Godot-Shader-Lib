@@ -17,7 +17,7 @@ func _get_input_port_count() -> int:
 	return 1
 
 func _get_input_port_name(port: int) -> String:
-	return "input"
+	return "in"
 
 func _get_input_port_type(port: int) -> PortType:
 	return PORT_TYPE_VECTOR_3D
@@ -26,7 +26,7 @@ func _get_output_port_count() -> int:
 	return 1
 
 func _get_output_port_name(port: int) -> String:
-	return "output"
+	return "out"
 
 func _get_output_port_type(port: int) -> PortType:
 	return PORT_TYPE_VECTOR_3D
