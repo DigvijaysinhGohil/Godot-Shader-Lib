@@ -2,10 +2,6 @@
 class_name VisualShaderNodeProceduralCheckerBoard extends VisualShaderNodeCustom
 
 func _init() -> void:
-	_set_input_port_default_value(1, Vector3(1.0, 1.0, 1.0))
-	_set_input_port_default_value(2, Vector3(0.4, 0.4, 0.4))
-	_set_input_port_default_value(3, Vector2(1.0, 1.0))
-
 	output_port_for_preview = 0
 
 func _get_name() -> String:
@@ -43,6 +39,17 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 			return PORT_TYPE_VECTOR_3D
 	return PORT_TYPE_SCALAR
 
+func _get_input_port_default_value(port: int) -> Variant:
+	match port:
+		1:
+			return Vector3(1.0, 1.0, 1.0)
+		2:
+			return Vector3(0.4, 0.4, 0.4)
+		3:
+			return Vector2(1.0, 1.0)
+		_:
+			return null
+
 func _get_output_port_count() -> int:
 	return 1
 
@@ -66,4 +73,4 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 	var color_b: String = input_vars[2]
 	var frequency: String = input_vars[3]
 
-	return output_vars[0] + " = checker_board(%s, %s, %s, %s);" % [uv, color_a, color_b, frequency]
+	return output_vars[0] + " = checker_board(%s, %s.xyz, %s.xyz, %s);" % [uv, color_a, color_b, frequency]

@@ -2,7 +2,6 @@
 class_name VisualShaderNodePseudoRandomNoise extends VisualShaderNodeCustom
 
 func _init() -> void:
-	set_input_port_default_value(0, 0.0)
 	output_port_for_preview = 0
 
 func _get_name() -> String:
@@ -25,6 +24,13 @@ func _get_input_port_name(port: int) -> String:
 
 func _get_input_port_type(port: int) -> PortType:
 	return PORT_TYPE_SCALAR
+
+func _get_input_port_default_value(port: int) -> Variant:
+	match port:
+		0:
+			return 0.0
+		_:
+			return null
 
 func _get_output_port_count() -> int:
 	return 1

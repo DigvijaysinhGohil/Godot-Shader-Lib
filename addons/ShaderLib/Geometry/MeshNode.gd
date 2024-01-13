@@ -1,8 +1,8 @@
 @tool
-class_name VisualShaderNodeGeometryNodeScaleWorld extends VisualShaderNodeCustom
+class_name VisualShaderNodeGeometryMeshNode extends VisualShaderNodeCustom
 
 func _get_name() -> String:
-	return "NodeScaleWorld"
+	return "MeshNode"
 
 func _get_category() -> String:
 	return "Geometry"
@@ -20,10 +20,14 @@ func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_3D
 
 func _get_output_port_count() -> int:
-	return 1
+	return 2
 
 func _get_output_port_name(port: int) -> String:
-	return "scale"
+	match port:
+		0:
+			return "position"
+		_:
+			return "scale"
 
 func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_3D
@@ -38,8 +42,11 @@ func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
 			return false
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("NodeScaleWorld.gdshaderinc").code
+	var code: String = preload("MeshNode.gdshaderinc").code
 	return code
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
-	return output_vars[0] + " = geometry_node_scale_world(MODEL_MATRIX);"
+	var code: String
+	code = "%s = geometry_node_scale_world(MODEL_MATRIX);" % output_vars[0]
+	code += "\n%s = NODE_POSITION_WORLD;" % output_vars[1]
+	return code

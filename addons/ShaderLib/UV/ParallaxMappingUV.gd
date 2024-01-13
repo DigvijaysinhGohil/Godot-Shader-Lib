@@ -1,9 +1,6 @@
 @tool
 class_name VisualShaderNodeUVParallaxMapping extends VisualShaderNodeCustom
 
-func _init() -> void:
-	_set_input_port_default_value(1, 1.0)
-
 func _get_name() -> String:
 	return "ParallaxMapping"
 
@@ -33,6 +30,13 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 			return PORT_TYPE_SAMPLER
 		_:
 			return PORT_TYPE_SCALAR
+
+func _get_input_port_default_value(port: int) -> Variant:
+	match port:
+		1:
+			return 1.0
+		_:
+			return null
 
 func _get_output_port_count() -> int:
 	return 1
