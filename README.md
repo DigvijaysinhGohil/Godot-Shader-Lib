@@ -12,13 +12,14 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <details open>
 <summary><h1>Geometry nodes</h1></summary>
 <details>
-<summary><h3>Node Scale World node</h3></summary>
-Provides accees to node scale in world space.
+<summary><h3>Mesh node</h3></summary>
+Provides accees to node's position and scale in world space.
 <hr>
 
 **Outputs**
 |Name|Type|Binding|Description|
 |---|---|---|---|
+|position|vec3|None|Node/object position in world space|
 |scale|vec3|None|Node/object scale in world space|
 ___
 </details>
