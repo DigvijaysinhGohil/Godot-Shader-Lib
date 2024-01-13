@@ -31,7 +31,7 @@ ___
 <summary><h2>Vector</h2></summary>
 <details>
 <summary><h3>Vector Transform node</h3></summary>
-Returns the transformed vector of the input value <i><b>in</b></i> from one coordinate space to another.<br><br><i>This node is only available in shader modes SPATIAL.</i>
+Returns the transformed vector of the input value <i><b>in</b></i> from one coordinate space to another.<br><br><i>This node is only available in shader mode SPATIAL.</i>
 <hr>
 
 **Inputs**
