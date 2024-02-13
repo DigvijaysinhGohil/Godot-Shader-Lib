@@ -47,6 +47,6 @@ func _get_global_code(mode: Shader.Mode) -> String:
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var code: String
-	code = "%s = geometry_node_scale_world(MODEL_MATRIX);" % output_vars[0]
-	code += "\n%s = NODE_POSITION_WORLD;" % output_vars[1]
+	code = "%s = NODE_POSITION_WORLD;" % output_vars[0]
+	code += "\n%s = geometry_node_scale_world(MODEL_MATRIX);" % output_vars[1]
 	return code
