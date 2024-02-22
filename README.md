@@ -320,7 +320,7 @@ Default value for uv input will be vec2(0, 0) for shader modes <i>PARTICLES</i>,
 <details>
 <summary><h3>Flipbook node</h3></summary>
 Creates a flipbook, or texture sheet animation, of the UVs supplied to input UV. The amount of tiles on the sheet are defined by the values of the inputs <b><i>rows</i></b> and <b><i>columns</i></b>.
-This node can be used to create a texture animation functionality, commonly used for particle effects and sprites.<br><br><i>This node is only available in shader modes SPATIAL and CANVAS ITEM.</i>
+This node can be used to create a texture animation functionality, commonly used for particle effects and sprites. Animation frames will go from top left to bottom right.<br><br><i>This node is only available in shader modes SPATIAL and CANVAS ITEM.</i>
 <hr>
 
 **Inputs**
@@ -329,8 +329,6 @@ This node can be used to create a texture animation functionality, commonly used
 |uv|vec2|UV|Input UV value|
 |rows|int|none|Amount of horizontal tiles in texture sheet|
 |columns|int|none|Amount of vertical tiles in texture sheet|
-|start frame|int|none|Start tile index texture sheet|
-|end frame|int|none|End tile index texture sheet|
 |anim speed|float|none|Animation speed|
 
 **Outputs**
