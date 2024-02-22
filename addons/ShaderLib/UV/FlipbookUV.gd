@@ -4,9 +4,7 @@ class_name VisualShaderNodeUVFlipbook extends VisualShaderNodeCustom
 func _init() -> void:
 	set_input_port_default_value(1, 1)
 	set_input_port_default_value(2, 1)
-	set_input_port_default_value(3, 0)
-	set_input_port_default_value(4, 0)
-	set_input_port_default_value(5, 0.1)
+	set_input_port_default_value(3, 0.1)
 
 	set_output_port_for_preview(0)
 
@@ -23,7 +21,7 @@ func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
 func _get_input_port_count() -> int:
-	return 6
+	return 4
 
 func _get_input_port_name(port: int) -> String:
 	match port:
@@ -34,10 +32,6 @@ func _get_input_port_name(port: int) -> String:
 		2:
 			return "columns"
 		3:
-			return "start frame"
-		4:
-			return "end frame"
-		5:
 			return "anim speed"
 	return ""
 
@@ -45,9 +39,9 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 	match port:
 		0:
 			return PORT_TYPE_VECTOR_2D
-		1, 2, 3, 4:
+		1, 2:
 			return PORT_TYPE_SCALAR_INT
-		5:
+		3:
 			return PORT_TYPE_SCALAR
 	return PORT_TYPE_SCALAR
 
@@ -85,8 +79,6 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 
 	var rows: String = input_vars[1]
 	var columns: String = input_vars[2]
-	var start_frame: String = input_vars[3]
-	var end_frame: String = input_vars[4]
-	var anim_speed: String = input_vars[5]
+	var anim_speed: String = input_vars[3]
 
-	return output_vars[0] + " = flipbook_uv(%s, %s, %s, %s, %s, %s);" % [uv, rows, columns, start_frame, end_frame, anim_speed]
+	return output_vars[0] + " = flipbook_uv(%s, %s, %s, %s);" % [uv, rows, columns, anim_speed]
