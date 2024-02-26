@@ -8,7 +8,7 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <details>
 <summary><h2>Geometry nodes</h2></summary>
 <hr>
-<h5>[Mesh node](/documentation/Nodes/Geometry/Mesh.md)</h5>
+##### [Mesh node](/Nodes/Geometry/Mesh.md)
 <hr>
 </details>
 <details>
