@@ -8,7 +8,7 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <details>
 <summary><h2>Geometry nodes</h2></summary>
 <hr>
-##### [Mesh node](/Nodes/Geometry/Mesh.md)
+<h5><a href="/Nodes/Geometry/Mesh.md">Mesh node</a></h5>
 <hr>
 </details>
 <details>
@@ -16,48 +16,48 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <hr>
 <details>
 <summary><h3>Vector</h3></summary>
-<h5>[Vector Transform node](/Nodes/Maths/Vector/VectorTransform.md)</h5>
+<h5><a href="/Nodes/Maths/Vector/VectorTransform.md">Vector Transform node</a></h5>
 </details>
 <details>
-<summary><h2>Wave</h2></summary>
-<h5>[Noise Sine Wave node](/Nodes/Maths/Wave/NoiseSineWave.md)</h5>
-<h5>[Sawtooth Wave node](/Nodes/Maths/Wave/SawtoothWave.md)</h5>
-<h5>[Square Wave node](/Nodes/Maths/Wave/SquareWave.md)</h5>
-<h5>[Triangle Wave node](/Nodes/Maths/Wave/TriangleWave.md)</h5>
+<summary><h3>Wave</h3></summary>
+<h5><a href="/Nodes/Maths/Wave/NoiseSineWave.md">Noise Sine Wave node</a></h5>
+<h5><a href="/Nodes/Maths/Wave/SawtoothWave.md">Sawtooth Wave node</a></h5>
+<h5><a href="/Nodes/Maths/Wave/SquareWave.md">Square Wave node</a></h5>
+<h5><a href="/Nodes/Maths/Wave/TriangleWave.md">Triangle Wave node</a></h5>
 </details>
 <hr>
 </details>
 <details>
 <summary><h2>Procedural nodes</h2></summary>
 <hr>
-<h5>[Checker Board node](/Nodes/Procedural/CheckerBoard.md)</h5>
+<h5><a href="/Nodes/Procedural/CheckerBoard.md">Checker Board node</a></h5>
 <details>
 <summary><h3>Noise</h3></summary>
-<h5>[Gradient Noise node](/Nodes/Procedural/Noise/GradientNoise.md)</h5>
-<h5>[Pseudo Random Noise node](/Nodes/Procedural/Noise/PseudoRandomNoise.md)</h5>
-<h5>[Simple Noise node](/Nodes/Procedural/Noise/SimpleNoise.md)</h5>
-<h5>[Voronoi node](/Nodes/Procedural/Noise/Voronoi.md)</h5>
+<h5><a href="/Nodes/Procedural/Noise/GradientNoise.md">Gradient Noise node</a></h5>
+<h5><a href="/Nodes/Procedural/Noise/PseudoRandomNoise.md">Pseudo Random Noise node</a></h5>
+<h5><a href="/Nodes/Procedural/Noise/SimpleNoise.md">Simple Noise node</a></h5>
+<h5><a href="/Nodes/Procedural/Noise/Voronoi.md">Voronoi node</a></h5>
 </details>
 <details>
-<summary><h2>Shapes</h2></summary>
-<h5>[Ellipse node](/Nodes/Procedural/Shapes/Ellipse.md)</h5>
-<h5>[Polygon node](/Nodes/Procedural/Shapes/Polygon.md)</h5>
-<h5>[Rectangle node](/Nodes/Procedural/Shapes/Rectangle.md)</h5>
-<h5>[Rounded Polygon node](/Nodes/Procedural/Shapes/RoundedPolygon.md)</h5>
-<h5>[Rounded Rectangle node](/Nodes/Procedural/Shapes/RoundedRectangle.md)</h5>
+<summary><h3>Shapes</h3></summary>
+<h5><a href="/Nodes/Procedural/Shapes/Ellipse.md">Ellipse node</a></h5>
+<h5><a href="/Nodes/Procedural/Shapes/Polygon.md">Polygon node</a></h5>
+<h5><a href="/Nodes/Procedural/Shapes/Rectangle.md">Rectangle node</a></h5>
+<h5><a href="/Nodes/Procedural/Shapes/RoundedPolygon.md">Rounded Polygon node</a></h5>
+<h5><a href="/Nodes/Procedural/Shapes/RoundedRectangle.md">Rounded Rectangle node</a></h5>
 </details>
 <hr>
 </details>
 <details>
 <summary><h2>UV nodes</h2></summary>
 <hr>
-<h5>[Flipbook node](/Nodes/UV/Flipbook.md)</h5>
-<h5>[Parallax Mapping node](/Nodes/UV/ParallaxMapping.md)</h5>
-<h5>[Radial Shear node](/Nodes/UV/RadialShear.md)</h5>
-<h5>[Rotate node](/Nodes/UV/Rotate.md)</h5>
-<h5>[Spherize node](/Nodes/UV/Spherize.md)</h5>
-<h5>[Swirl node](/Nodes/UV/Swirl.md)</h5>
-<h5>[Tiling and Offset node](/Nodes/UV/TilingAndOffset.md)</h5>
-<h5>[Twirl node](/Nodes/UV/Twirl.md)</h5>
+<h5><a href="/Nodes/UV/Flipbook.md">Flipbook node</a></h5>
+<h5><a href="/Nodes/UV/ParallaxMapping.md">Parallax Mapping node</a></h5>
+<h5><a href="/Nodes/UV/RadialShear.md">Radial Shear node</a></h5>
+<h5><a href="/Nodes/UV/Rotate.md">Rotate node</a></h5>
+<h5><a href="/Nodes/UV/Spherize.md">Spherize node</a></h5>
+<h5><a href="/Nodes/UV/Swirl.md">Swirl node</a></h5>
+<h5><a href="/Nodes/UV/TilingAndOffset.md">Tiling and Offset node</a></h5>
+<h5><a href="/Nodes/UV/Twirl.md">Twirl node</a></h5>
 <hr>
 </details>
