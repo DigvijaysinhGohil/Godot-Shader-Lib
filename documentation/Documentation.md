@@ -16,6 +16,8 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <hr>
 <details>
 <summary><h3>Vector</h3></summary>
+<h4><a href="/documentation/Nodes/Maths/Vector/Project.md">Project node</a></h4>
+<h4><a href="/documentation/Nodes/Maths/Vector/ProjectOnPlane.md">Project On Plane node</a></h4>
 <h4><a href="/documentation/Nodes/Maths/Vector/VectorTransform.md">Vector Transform node</a></h4>
 </details>
 <details>
