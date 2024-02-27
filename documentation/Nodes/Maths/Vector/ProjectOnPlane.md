@@ -16,5 +16,5 @@ Projects a vector onto a plane defined by a normal orthogonal to the plane.
 **Outputs**
 |Name|Type|Binding|Description|
 |---|---|---|---|
-|out|vector3|None|Output vector|
+|vector|vector3|None|Output vector|
 ___

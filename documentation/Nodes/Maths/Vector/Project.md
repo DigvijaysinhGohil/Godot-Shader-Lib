@@ -16,5 +16,5 @@ Projects <i><b>vector A</b></i> onto <i><b>vector B</b></i>.
 **Outputs**
 |Name|Type|Binding|Description|
 |---|---|---|---|
-|out|vector3|None|Output vector|
+|vector|vector3|None|Output vector|
 ___
