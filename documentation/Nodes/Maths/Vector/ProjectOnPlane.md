@@ -4,7 +4,7 @@ Projects a vector onto a plane defined by a normal orthogonal to the plane.
 
 **Controls**
 |Options|Description|
-|---|---|---|
+|---|---|
 |Vector2, Vector3|Vector type to use for calculation|
 
 **Inputs**

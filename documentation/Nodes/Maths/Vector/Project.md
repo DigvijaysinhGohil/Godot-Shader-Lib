@@ -4,7 +4,7 @@ Projects <i><b>vector A</b></i> onto <i><b>vector B</b></i>.
 
 **Controls**
 |Options|Description|
-|---|---|---|
+|---|---|
 |Vector2, Vector3|Vector type to use for calculation|
 
 **Inputs**
