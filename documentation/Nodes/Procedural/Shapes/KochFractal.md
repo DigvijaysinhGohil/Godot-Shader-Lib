@@ -15,5 +15,5 @@ Generates an koch curve similar to ice fractal shape based on input UV at the si
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |out|float|None|Output fractal value|
-|uv|vec2|None|Output uv|
+|uv|vec2|None|Output UV value|
 ___
