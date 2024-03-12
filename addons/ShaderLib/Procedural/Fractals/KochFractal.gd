@@ -8,7 +8,7 @@ func _get_name() -> String:
 	return "KochFractal"
 
 func _get_category() -> String:
-	return "Procedural/Shapes"
+	return "Procedural/Fractals"
 
 func _get_description() -> String:
 	return "Generates an koch curve similar to ice fractal shape based on input UV at the size specified by inputs width and height."

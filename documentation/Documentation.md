@@ -38,6 +38,10 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 
 <h4><a href="/documentation/Nodes/Procedural/CheckerBoard.md">&emsp;Checker Board node</a></h4>
 
+<h3>&emsp;Fractals</h3>
+
+<h4><a href="/documentation/Nodes/Procedural/Shapes/KochFractal.md">&emsp;&emsp;Koch Fractal node</a></h4>
+
 <h3>&emsp;Noise</h3>
 
 <h4><a href="/documentation/Nodes/Procedural/Noise/GradientNoise.md">&emsp;&emsp;Gradient Noise node</a></h4>
@@ -48,7 +52,6 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <h3>&emsp;Shapes</h3>
 
 <h4><a href="/documentation/Nodes/Procedural/Shapes/Ellipse.md">&emsp;&emsp;Ellipse node</a></h4>
-<h4><a href="/documentation/Nodes/Procedural/Shapes/KochFractal.md">&emsp;&emsp;Koch Fractal node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Shapes/Polygon.md">&emsp;&emsp;Polygon node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Shapes/Rectangle.md">&emsp;&emsp;Rectangle node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Shapes/RoundedPolygon.md">&emsp;&emsp;Rounded Polygon node</a></h4>
