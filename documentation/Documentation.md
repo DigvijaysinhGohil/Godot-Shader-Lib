@@ -5,6 +5,12 @@ If you don't immediatly see new nodes under **_Addons_** category, simply reload
 # Uninstallation
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 # Available Nodes
+<h2>Artistic nodes</h2>
+
+<h3>&emsp;Adjustment</h3>
+
+<h4><a href="/documentation/Nodes/Artistic/Adjustment/HueNode.md">&emsp;&emsp;Hue node</a></h4>
+
 <h2>Geometry nodes</h2>
 
 <h4><a href="/documentation/Nodes/Geometry/Mesh.md">&emsp;Mesh node</a></h4>

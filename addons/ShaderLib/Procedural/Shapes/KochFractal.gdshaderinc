@@ -31,6 +31,6 @@ float koch_fractal(vec2 uv, float outline, int iteration, float shape_width, flo
 
 	dist = length(center - vec2(clamp(center.x, -1.0, 1.0), 0));
 	dist += step(outline / 100.0, dist / scale);
-	koch_uv = center;
+	koch_uv = abs(center);
 	return 1.0 - dist;
 }
