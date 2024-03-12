@@ -15,6 +15,10 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <h4><a href="/documentation/Nodes/Artistic/Adjustment/SaturationNode.md">&emsp;&emsp;Saturation node</a></h4>
 <h4><a href="/documentation/Nodes/Artistic/Adjustment/WhiteBalanceNode.md">&emsp;&emsp;White Balance node</a></h4>
 
+<h3>&emsp;Mask</h3>
+
+<h4><a href="/documentation/Nodes/Artistic/Mask/ColorMaskNode.md">&emsp;&emsp;Color Mask node</a></h4>
+
 <h2>Geometry nodes</h2>
 
 <h4><a href="/documentation/Nodes/Geometry/Mesh.md">&emsp;Mesh node</a></h4>
