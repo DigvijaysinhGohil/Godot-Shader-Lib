@@ -12,6 +12,7 @@ Delete the contents of **_addons/ShaderLib_** folder from your project. Make sur
 <h4><a href="/documentation/Nodes/Artistic/Adjustment/ContrastNode.md">&emsp;&emsp;Contrast node</a></h4>
 <h4><a href="/documentation/Nodes/Artistic/Adjustment/HueNode.md">&emsp;&emsp;Hue node</a></h4>
 <h4><a href="/documentation/Nodes/Artistic/Adjustment/ReplaceColorNode.md">&emsp;&emsp;Replace Color node</a></h4>
+<h4><a href="/documentation/Nodes/Artistic/Adjustment/SaturationNode.md">&emsp;&emsp;Saturation node</a></h4>
 
 <h2>Geometry nodes</h2>
 
