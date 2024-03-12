@@ -38,6 +38,8 @@ func _get_input_port_type(port: int) -> PortType:
 
 func _get_input_port_default_value(port: int) -> Variant:
 	match port:
+		1, 2:
+			return Vector3(0.0, 0.0, 0.0)
 		3, 4:
 			return 0.0
 		_:
