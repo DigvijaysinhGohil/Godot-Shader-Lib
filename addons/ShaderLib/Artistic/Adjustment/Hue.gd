@@ -35,7 +35,7 @@ func _get_input_port_default_value(port: int) -> Variant:
 		1:
 			return 0.0
 		_:
-			return null
+			return Vector3(1.0, 1.0, 1.0)
 
 func _get_output_port_count() -> int:
 	return 1
