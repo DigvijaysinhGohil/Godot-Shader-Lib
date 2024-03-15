@@ -4,6 +4,11 @@ Copy the contents of **_addons/ShaderLib_** into the same folder in your project
 If you don't immediatly see new nodes under **_Addons_** category, simply reload your project.
 # Uninstallation
 Delete the contents of **_addons/ShaderLib_** folder from your project. Make sure to delete it using the Godot editor instead of your default file system program.
+# Special Note
+Even if you don't use visual shader, you can still use this addon for writing your custom shaders.
+
+For example if you want to rotate UV in your **_.gdshader_** file, you can use `rotate_uv()` of this addon using `#include` keyword as following.
+`#include "res://addons/ShaderLib/UV/RotateUV.gdshaderinc"`
 # Available Nodes
 <h2>Artistic nodes</h2>
 
