@@ -17,7 +17,7 @@ func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_SCALAR
 
 func _get_input_port_count() -> int:
-	return 2
+	return 3
 
 func _get_input_port_name(port: int) -> String:
 	match port:
@@ -25,7 +25,8 @@ func _get_input_port_name(port: int) -> String:
 			return "uv"
 		1:
 			return "scale"
-	return ""
+		_:
+			return "octaves"
 
 func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 	match port:
@@ -33,14 +34,19 @@ func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 			return PORT_TYPE_VECTOR_2D
 		1:
 			return PORT_TYPE_SCALAR
-	return PORT_TYPE_SCALAR
+		_:
+			return PORT_TYPE_SCALAR_INT
 
 func _get_input_port_default_value(port: int) -> Variant:
 	match port:
 		1:
 			return 10.0
+		2:
+			return 6
 		_:
 			return null
+
+func _get_default_input_port(type: PortType) -> int:
 
 func _get_output_port_count() -> int:
 	return 1
@@ -62,5 +68,6 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 		uv = input_vars[0]
 
 	var scale: String = input_vars[1]
+	var octaves: String = input_vars[2]
 
-	return output_vars[0] + " = simple_noise(%s, %s);" % [uv, scale]
+	return output_vars[0] + " = simple_noise(%s, %s, %s);" % [uv, scale, octaves]

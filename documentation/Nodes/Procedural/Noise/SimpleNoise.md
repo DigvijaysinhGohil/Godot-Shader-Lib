@@ -7,6 +7,7 @@ Generates a simplex, or value noise based on input UV. The resulting <b><i>outpu
 |---|---|---|---|
 |uv|vec2|UV|Input UV value|
 |scale|float|none|Noise scale|
+|octaves|int|none|Octaves/Layers of noise, <b><i>octaves</i></b> input is clamped between 1 and 6.|
   
 **Outputs**
 |Name|Type|Binding|Description|
