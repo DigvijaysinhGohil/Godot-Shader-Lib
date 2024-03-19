@@ -17,34 +17,63 @@ func _get_return_icon_type() -> VisualShaderNode.PortType:
 	return PORT_TYPE_SCALAR
 
 func _get_input_port_count() -> int:
-	return 3
+	var distance_index: int = get_option_index(0)
+	match distance_index:
+		2:
+			return 4
+		_:
+			return 3
 
 func _get_input_port_name(port: int) -> String:
-	match port:
-		0:
-			return "uv"
-		1:
-			return "cell density"
+	var distance_index: int = get_option_index(0)
+	match distance_index:
 		2:
-			return "angle offset"
-	return ""
+			match port:
+				0:
+					return "uv"
+				1:
+					return "cell density"
+				2:
+					return "angle offset"
+				_:
+					return "chebyshev power"
+		_:
+			match port:
+				0:
+					return "uv"
+				1:
+					return "cell density"
+				_:
+					return "angle offset"
 
 func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
 	match port:
 		0:
 			return PORT_TYPE_VECTOR_2D
-		1, 2:
+		_:
 			return PORT_TYPE_SCALAR
-	return PORT_TYPE_SCALAR
 
 func _get_input_port_default_value(port: int) -> Variant:
-	match port:
-		1:
-			return 5.0
+	var distance_index: int = get_option_index(0)
+	match distance_index:
 		2:
-			return 2.0
+			match port:
+				1:
+					return 5.0
+				2:
+					return 2.0
+				3:
+					return 2.0
+				_:
+					return null
 		_:
-			return null
+			match port:
+				1:
+					return 5.0
+				2:
+					return 2.0
+				_:
+					return null
 
 func _get_output_port_count() -> int:
 	return 2
@@ -53,12 +82,23 @@ func _get_output_port_name(port: int) -> String:
 	match port:
 		0:
 			return "output"
-		1:
+		_:
 			return "cells"
-	return ""
 
 func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_SCALAR
+
+func _get_property_count() -> int:
+	return 1
+
+func _get_property_name(index: int) -> String:
+	return "Distance"
+
+func _get_property_default_index(index: int) -> int:
+	return 0
+
+func _get_property_options(index: int) -> PackedStringArray:
+	return ["Euclidean", "Manhattan", "Chebyshev"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
 	var code: String = preload("Voronoi.gdshaderinc").code
@@ -70,9 +110,17 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 	if input_vars[0]:
 		uv = input_vars[0]
 
+	var distance_index: int = get_option_index(0)
+
 	var cell_density: String = input_vars[1]
 	var angle_offset: String = input_vars[2]
+	var chebyshev_power: String = "0."
+
+	if distance_index == 2:
+		if input_vars[3]:
+			chebyshev_power = input_vars[3]
+
 	var output: String = output_vars[0]
 	var cells: String = output_vars[1]
 
-	return "voronoi_noise(%s,%s, %s, %s, %s);" % [uv, cell_density, angle_offset, output, cells]
+	return "voronoi_noise(%s, %s, %s, %s, %s, %s, %s);" % [uv, cell_density, angle_offset, distance_index, chebyshev_power, output, cells]
