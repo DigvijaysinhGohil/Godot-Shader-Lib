@@ -27,7 +27,7 @@ void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance
 		for(float x = -1.; x <= 1.; x++) {
 			vec2 offset = vec2(x, y);
 			vec2 n = voronoi_random_vector(grid_id + offset);
-			vec2 p = offset + sin(n + angle_offset) * .5 + .5;
+			vec2 p = offset + vec2(sin(n.x + angle_offset) * .5 + .5, cos(n.y + angle_offset) * .5 + .5);
 			float d = min_dist;
 
 			switch(distance_index){
