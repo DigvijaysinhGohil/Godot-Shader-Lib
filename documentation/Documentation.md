@@ -32,6 +32,10 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 
 <h3>&emsp;Vector</h3>
 
+<h3>&emsp;&emsp;Distance</h3>
+
+<h4><a href="/documentation/Nodes/Maths/Vector/Distance/ManhattanDistance.md">&emsp;&emsp;&emsp;Manhattan Distance node</a></h4>
+
 <h4><a href="/documentation/Nodes/Maths/Vector/Project.md">&emsp;&emsp;Project node</a></h4>
 <h4><a href="/documentation/Nodes/Maths/Vector/ProjectOnPlane.md">&emsp;&emsp;Project On Plane node</a></h4>
 <h4><a href="/documentation/Nodes/Maths/Vector/VectorTransform.md">&emsp;&emsp;Vector Transform node</a></h4>
