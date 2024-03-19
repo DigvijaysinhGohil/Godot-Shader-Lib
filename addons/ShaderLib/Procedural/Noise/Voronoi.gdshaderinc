@@ -1,20 +1,9 @@
+#include "res://addons/ShaderLib/Maths/Vector/Distance/Manhattan2D.gdshaderinc"
+#include "res://addons/ShaderLib/Maths/Vector/Distance/Chebyshev2D.gdshaderinc"
+
 vec2 voronoi_random_vector(vec2 p) {
 	mat2 matrix = mat2(vec2(15.27, 47.63), vec2(99.41, 89.98));
 	return fract(sin(p * matrix) * 46839.32);
-}
-
-float voronoi_euclidean_distance(vec2 point1, vec2 point2){
-	return distance(point1, point2);
-}
-
-float voronoi_manhattan_distance(vec2 point1, vec2 point2) {
-	vec2 d = point1 - point2;
-	return abs(d.x) + abs(d.y);
-}
-
-float voronoi_chebyshev_distance(vec2 point1, vec2 point2, float power) {
-	vec2 p = point1 - point2;
-	return pow(pow(p.x, power) + pow(p.y, power), 1. / power);
 }
 
 void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance_index, float chebyshev_power, out float output, out float cells){
@@ -32,13 +21,13 @@ void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance
 
 			switch(distance_index){
 				case 1:
-					d = voronoi_manhattan_distance(grid_uv, p);
+					d = manhattan_distance_2d(grid_uv, p);
 					break;
 				case 2:
-					d = voronoi_chebyshev_distance(grid_uv, p, chebyshev_power);
+					d = chebyshev_distance_2d(grid_uv, p, chebyshev_power);
 					break;
 				default:
-					d = voronoi_euclidean_distance(grid_uv, p);
+					d = distance(grid_uv, p);
 					break;
 			}
 
