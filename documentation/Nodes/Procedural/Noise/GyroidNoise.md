@@ -8,8 +8,8 @@ Generates a gyroid noise based on input UV. The resulting <b><i>output</i></b> v
 |uv|vec2|UV|Input UV value|
 |scale|float|none|Noise scale|
 |ratio|vec2|none|Noise ratio for X and Y Axes|
-|height|vec2|none|Noise height|
-|thickness|vec2|none|Noise thickness, clamped between 0 and 1|
+|height|float|none|Noise height|
+|thickness|float|none|Noise thickness, clamped between 0 and 1|
   
 **Outputs**
 |Name|Type|Binding|Description|
