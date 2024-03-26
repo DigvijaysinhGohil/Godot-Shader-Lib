@@ -1,5 +1,5 @@
 vec3 vector_transform_world_to_local(mat4 model_matrix, vec3 vector){
-	return (transpose(model_matrix) * vec4(vector, 1.0)).xyz;
+	return (inverse(model_matrix) * vec4(vector, 1.0)).xyz;
 }
 
 vec3 vector_transform_world_to_view(mat4 view_matrix, vec3 vector){
@@ -76,24 +76,24 @@ vec3 vector_transform_screen_to_tangent(mat4 inv_projection_matrix, mat4 inv_vie
 }
 
 vec3 vector_transform_tangent_to_local(vec3 normal, vec3 binormal, vec3 tangent, vec3 vector){
-	mat3 tangent_to_local_matrix = transpose(mat3(tangent, binormal, normal));
+	mat3 tangent_to_local_matrix = inverse(mat3(tangent, binormal, normal));
 	return tangent_to_local_matrix * vector;
 }
 
 vec3 vector_transform_tangent_to_world(mat4 model_matrix, vec3 normal, vec3 binormal, vec3 tangent, vec3 vector){
-	mat3 tangent_to_local_matrix = transpose(mat3(tangent, binormal, normal));
+	mat3 tangent_to_local_matrix = inverse(mat3(tangent, binormal, normal));
 	vec3 vector_local = tangent_to_local_matrix * vector;
 	return vector_transform_local_to_world(model_matrix, vector_local);
 }
 
 vec3 vector_transform_tangent_to_view(mat4 model_matrix, mat4 view_matrix, vec3 normal, vec3 binormal, vec3 tangent, vec3 vector){
-	mat3 tangent_to_local_matrix = transpose(mat3(tangent, binormal, normal));
+	mat3 tangent_to_local_matrix = inverse(mat3(tangent, binormal, normal));
 	vec3 vector_local = tangent_to_local_matrix * vector;
 	return vector_transform_local_to_view(model_matrix, view_matrix, vector_local);
 }
 
 vec3 vector_transform_tangent_to_screen(mat4 model_matrix, mat4 view_matrix, mat4 projection_matrix, vec3 normal, vec3 binormal, vec3 tangent, vec3 vector){
-	mat3 tangent_to_local_matrix = transpose(mat3(tangent, binormal, normal));
+	mat3 tangent_to_local_matrix = inverse(mat3(tangent, binormal, normal));
 	vec3 vector_local = tangent_to_local_matrix * vector;
 	return vector_transform_local_to_screen(model_matrix, view_matrix, projection_matrix, vector_local);
 }
