@@ -59,6 +59,7 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 <h3>&emsp;Noise</h3>
 
 <h4><a href="/documentation/Nodes/Procedural/Noise/GradientNoise.md">&emsp;&emsp;Gradient Noise node</a></h4>
+<h4><a href="/documentation/Nodes/Procedural/Noise/GyroidNoise.md">&emsp;&emsp;Gyroid Noise node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Noise/PseudoRandomNoise.md">&emsp;&emsp;Pseudo Random Noise node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Noise/SimpleNoise.md">&emsp;&emsp;Simple Noise node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Noise/Voronoi.md">&emsp;&emsp;Voronoi node</a></h4>
