@@ -46,8 +46,6 @@ func _get_input_port_default_value(port: int) -> Variant:
 		_:
 			return null
 
-func _get_default_input_port(type: PortType) -> int:
-
 func _get_output_port_count() -> int:
 	return 1
 
