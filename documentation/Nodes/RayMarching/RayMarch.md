@@ -52,8 +52,8 @@ This node is only simple ray marching example, the true power of raymarching can
 The default location can be found at<br>
 `res://addons/ShaderLib/RayMarching/RayMarchCustom.gdshaderinc`
 
-You can copy the code from `RayMarchCustom.gdshaderinc` and then create a <b><i>Global Expression/i></b> node and paste it in your visual shader.<br>
-![Global Expression Node](GlobalExpression.jpg)<br>
-Lastly you also need to create an <b><i>Expression/i></b> node, define required input and output parameters and call the custom ray marching function as below.<br>
-![Expression Node](Expression.jpg)
+You can copy the code from `RayMarchCustom.gdshaderinc` and then create a <b><i>Global Expression</i></b> node and paste it in your visual shader.<br><br>
+![Global Expression Node](GlobalExpression.jpg)<br><br>
+Lastly you also need to create an <b><i>Expression</i></b> node, define required input and output parameters and call the custom ray marching function as below.<br><br>
+![Expression Node](Expression.jpg)<br>
 ___
