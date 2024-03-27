@@ -44,8 +44,9 @@ A simple ray marcher for primitive shapes.
 |---|---|---|---|
 |distance|float|None|Ray intersection distance|
 
-**Extras**
-This node is only simple ray marching example, the true power of raymarching can only be achieved by custom SDFs. At the moment I am unable to inject the custom code via visual shaders, so I have provided the custom template at the following location.<br>
+<hr>
+<h3>Extras</h3>
+This node is only simple ray marching example, the true power of raymarching can only be achieved by custom SDFs. At the moment I am unable to inject the custom code via visual shaders, so I have provided the custom template at the following location.<br><br>
 
 The default location can be found at<br>
 `res://addons/ShaderLib/RayMarching/RayMarchCustom.gdshaderinc`
