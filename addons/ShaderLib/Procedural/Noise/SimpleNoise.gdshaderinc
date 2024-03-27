@@ -1,32 +1,33 @@
-float noise_random_value(vec2 uv){
-	return fract(sin(dot(uv.xy, vec2(12.9898,78.233))) * 43758.5453123);
+float simple_noise_random(vec2 point) {
+	return fract(sin(point.x * 100. + point.y * 654.125) * 55647.8745);
 }
 
-float value_noise(vec2 uv){
-	vec2 _floor = floor(uv);
-	vec2 _fraction = fract(uv);
-	_fraction = _fraction * _fraction * (3.0 - 2.0 * _fraction);
-	vec2 _corner = vec2(1.0, 0.0);
+float value_noise(vec2 uv) {
+	vec2 grid_uv = fract(uv);
+	vec2 grid_id = floor(uv);
+	grid_uv = grid_uv * grid_uv * (3. - 2. * grid_uv);
 
-	float _c0 = noise_random_value(_floor + _corner.yy);
-	float _c1 = noise_random_value(_floor + _corner.xy);
-	float _c2 = noise_random_value(_floor + _corner.yx);
-	float _c3 = noise_random_value(_floor + _corner.xx);
+	float bottom_left = simple_noise_random(grid_id);
+	float bottom_right = simple_noise_random(grid_id + vec2(1, 0));
+	float bottom = mix(bottom_left, bottom_right, grid_uv.x);
 
-	vec2 _blur = smoothstep(0.0, 1.0, _fraction);
-	float mix_one = mix(_c0, _c1, _blur.x) + (_c2 - _c0) * _blur.y * (1.0 - _blur.x) + (_c3 - _c1) * _blur.x * _blur.y;
-	return mix_one;
+	float top_left = simple_noise_random(grid_id + vec2(0, 1));
+	float top_right = simple_noise_random(grid_id + vec2(1, 1));
+	float top = mix(top_left, top_right, grid_uv.x);
+
+	return mix(bottom, top, grid_uv.y);
 }
 
-float simple_noise(vec2 uv, float scale){
-	int octaves = 6;
-	float amplitude = 0.25;
-	float value = 0.0;
+float simple_noise(vec2 uv, float scale, int octaves) {
+	octaves = clamp(octaves, 1, 6);
+	float noise = value_noise(uv * scale);
+	float amplitude = 1.;
 
-	for(int i = 0; i < octaves; i++) {
-		value += amplitude * value_noise(scale * uv);
-		amplitude *= 0.85;
-		scale *= 3.0;
+	for(int i = 1; i < octaves; i++) {
+		scale *= 2.;
+		amplitude /= 2.;
+		noise += value_noise(uv * scale) * amplitude;
 	}
-	return value;
+
+	return noise / 2.;
 }

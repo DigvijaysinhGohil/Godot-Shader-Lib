@@ -32,6 +32,11 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 
 <h3>&emsp;Vector</h3>
 
+<h3>&emsp;&emsp;Distance</h3>
+
+<h4><a href="/documentation/Nodes/Maths/Vector/Distance/ChebyshevDistance.md">&emsp;&emsp;&emsp;Chebyshev Distance node</a></h4>
+<h4><a href="/documentation/Nodes/Maths/Vector/Distance/ManhattanDistance.md">&emsp;&emsp;&emsp;Manhattan Distance node</a></h4>
+
 <h4><a href="/documentation/Nodes/Maths/Vector/Project.md">&emsp;&emsp;Project node</a></h4>
 <h4><a href="/documentation/Nodes/Maths/Vector/ProjectOnPlane.md">&emsp;&emsp;Project On Plane node</a></h4>
 <h4><a href="/documentation/Nodes/Maths/Vector/VectorTransform.md">&emsp;&emsp;Vector Transform node</a></h4>
@@ -54,6 +59,7 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 <h3>&emsp;Noise</h3>
 
 <h4><a href="/documentation/Nodes/Procedural/Noise/GradientNoise.md">&emsp;&emsp;Gradient Noise node</a></h4>
+<h4><a href="/documentation/Nodes/Procedural/Noise/GyroidNoise.md">&emsp;&emsp;Gyroid Noise node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Noise/PseudoRandomNoise.md">&emsp;&emsp;Pseudo Random Noise node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Noise/SimpleNoise.md">&emsp;&emsp;Simple Noise node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Noise/Voronoi.md">&emsp;&emsp;Voronoi node</a></h4>
@@ -65,6 +71,10 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 <h4><a href="/documentation/Nodes/Procedural/Shapes/Rectangle.md">&emsp;&emsp;Rectangle node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Shapes/RoundedPolygon.md">&emsp;&emsp;Rounded Polygon node</a></h4>
 <h4><a href="/documentation/Nodes/Procedural/Shapes/RoundedRectangle.md">&emsp;&emsp;Rounded Rectangle node</a></h4>
+
+<h2>Ray marching nodes</h2>
+
+<h4><a href="/documentation/Nodes/RayMarching/RayMarch.md">&emsp;Ray March node</a></h4>
 
 <h2>UV nodes</h2>
 

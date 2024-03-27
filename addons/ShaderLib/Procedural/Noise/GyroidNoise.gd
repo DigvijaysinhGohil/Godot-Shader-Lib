@@ -1,23 +1,23 @@
 @tool
-class_name VisualShaderNodeProceduralSimpleNoise extends VisualShaderNodeCustom
+class_name VisualShaderNodeProceduralGyroidNoise extends VisualShaderNodeCustom
 
 func _init() -> void:
 	output_port_for_preview = 0
 
 func _get_name() -> String:
-	return "SimpleNoise"
+	return "GyroidNoise"
 
 func _get_category() -> String:
 	return "Procedural/Noise"
 
 func _get_description() -> String:
-	return "Generates a simplex, or value noise based on input UV."
+	return "Generates a gyroid noise based on input UV."
 
-func _get_return_icon_type() -> VisualShaderNode.PortType:
+func _get_return_icon_type() -> PortType:
 	return PORT_TYPE_SCALAR
 
 func _get_input_port_count() -> int:
-	return 3
+	return 5
 
 func _get_input_port_name(port: int) -> String:
 	match port:
@@ -25,24 +25,30 @@ func _get_input_port_name(port: int) -> String:
 			return "uv"
 		1:
 			return "scale"
+		2:
+			return "ratio"
+		3:
+			return "height"
 		_:
-			return "octaves"
+			return "thickness"
 
-func _get_input_port_type(port: int) -> VisualShaderNode.PortType:
+func _get_input_port_type(port: int) -> PortType:
 	match port:
-		0:
+		0, 2:
 			return PORT_TYPE_VECTOR_2D
-		1:
-			return PORT_TYPE_SCALAR
 		_:
-			return PORT_TYPE_SCALAR_INT
+			return PORT_TYPE_SCALAR
 
 func _get_input_port_default_value(port: int) -> Variant:
 	match port:
 		1:
-			return 10.0
+			return 2.0
 		2:
-			return 6
+			return Vector2(1, 1)
+		3:
+			return 0.5
+		4:
+			return 0.0
 		_:
 			return null
 
@@ -52,11 +58,11 @@ func _get_output_port_count() -> int:
 func _get_output_port_name(port: int) -> String:
 	return "output"
 
-func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
+func _get_output_port_type(port: int) -> PortType:
 	return PORT_TYPE_SCALAR
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("SimpleNoise.gdshaderinc").code
+	var code: String = preload("GyroidNoise.gdshaderinc").code
 	return code
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
@@ -66,6 +72,8 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 		uv = input_vars[0]
 
 	var scale: String = input_vars[1]
-	var octaves: String = input_vars[2]
+	var ratio: String = input_vars[2]
+	var height: String = input_vars[3]
+	var thickness: String = input_vars[4]
 
-	return output_vars[0] + " = simple_noise(%s, %s, %s);" % [uv, scale, octaves]
+	return output_vars[0] + " = gyroid_noise(%s, %s, %s, %s, %s);" % [uv, scale, ratio, height, thickness]
