@@ -5,7 +5,7 @@ A simple ray marcher for primitive shapes.
 **Controls**
 |Name|Options|Description|
 |---|---|---|
-|SDF (Signed Distance Function)|SDBox, SDSphere, SDCapsule, SDCylinder, SDTorus|Signed Distance Functions for the space to draw.|
+|SDF (Signed Distance Function)|SDBox, SDSphere, SDCapsule, SDCylinder, SDTorus|Signed Distance Functions for the shape to draw.|
 
 **Inputs**
 |Name|Type|Binding|Description|
