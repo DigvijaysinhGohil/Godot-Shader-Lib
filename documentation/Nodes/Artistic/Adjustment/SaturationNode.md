@@ -12,4 +12,16 @@ Adjusts the saturation of input <b><i>in</i></b> by the amount of input <b><i>sa
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |out|vec3|None|Output value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Artistic/Adjustment/Saturation.gdshaderinc`
+
+**Method signature**
+<br>`vec3 saturation(input, saturation)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|input|vec3|Input color|
+|saturation|float|Saturation value|
 ___
