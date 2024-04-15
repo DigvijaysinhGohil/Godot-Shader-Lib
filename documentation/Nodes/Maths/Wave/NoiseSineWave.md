@@ -17,4 +17,16 @@ Returns the sine of the value of input <b><i>in</i></b>. For variance, psuedo-ra
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |out|Dynamic vector|None|Output value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Maths/Wave/NoiseSineWave.gdshaderinc`
+
+**Method signature**
+<br>`vec4 noise_sine_wave(vec4 input, vec2 min_max)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|input|vec4|Input vector|
+|min_max|vec2|Minimum and Maximum values for noise intensity|
 ___

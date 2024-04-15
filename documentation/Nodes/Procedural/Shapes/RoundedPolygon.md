@@ -15,4 +15,19 @@ Generates a rounded polygon shape based on input UV at the size specified by inp
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |output|float|None|Output rounded polygon value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Procedural/Shapes/RoundedPolygon.gdshaderinc`
+
+**Method signature**
+<br>`float rounded_polygon_shape(vec2 uv, float width, float height, float sides, float roundness)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|uv|vec2|Input UV value|
+|width|float|Polygon width|
+|height|float|Polygon height|
+|sides|float|Number of sides of the polygon|
+|roundness|float|Corner radius|
 ___

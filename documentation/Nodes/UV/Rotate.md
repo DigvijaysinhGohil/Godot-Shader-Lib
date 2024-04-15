@@ -7,7 +7,7 @@ Rotates value of input UV around a reference point defined by input <b><i>center
 |---|---|---|---|
 |uv|vec2|UV|Input UV value|
 |center|vec2|none|Center reference point|
-|rotation|float|none|Rotation amount in radians|
+|rotation|float|none|Rotation amount|
 
 **Controls**
 |Name|Options|Description|
@@ -18,4 +18,18 @@ Rotates value of input UV around a reference point defined by input <b><i>center
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/UV/RotateUV.gdshaderinc`
+
+**Method signature**
+<br>`vec2 rotate_uv(vec2 uv, vec2 center, float rotation, bool use_degrees)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|uv|vec2|Input uv|
+|center|vec2|Center reference point|
+|rotation|float|Rotation amount|
+|use_degrees|bool|Specifies the unit for rotation, true = Degrees, false = Radians|
 ___

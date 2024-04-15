@@ -14,4 +14,18 @@ Creates a mask from values in input <b><i>in</i></b> equal to input <b><i>mask c
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |out|vec3|None|Output mask value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Artistic/Mask/ColorMask.gdshaderinc`
+
+**Method signature**
+<br>`vec4 color_mask(input, mask_color, range, fuzziness)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|input|vec3|Input color|
+|mask_color|vec3|Color to use for mask|
+|range|float|Select colors within this range from input <b><i>mask color</i></b>|
+|fuzziness|float|Feather edges around selection. Higher values result in a softer selection mask.|
 ___

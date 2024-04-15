@@ -14,4 +14,18 @@ Applies a spherical warping effect similar to a fisheye camera lens to the value
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/UV/SpherizeUV.gdshaderinc`
+
+**Method signature**
+<br>`vec2 spherize_uv(vec2 uv, vec2 center, float strength, vec2 offset)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|uv|vec2|Input uv|
+|center|vec2|Center reference point|
+|strength|float|Strength of the effect|
+|offset|vec2|Individual channel offsets|
 ___

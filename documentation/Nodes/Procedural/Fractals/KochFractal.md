@@ -16,4 +16,20 @@ Generates an koch curve similar to ice fractal shape based on input UV at the si
 |---|---|---|---|
 |out|float|None|Output fractal value|
 |uv|vec2|None|Output UV value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Procedural/Fractals/KochFractal.gdshaderinc`
+
+**Method signature**
+<br>`float koch_fractal(vec2 uv, float outline, int iteration, float shape_width, float shape_height, out vec2 koch_uv)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|uv|vec2|Input UV value|
+|outline|float|Shape outline thickness|
+|iterations|int|Number of steps to repeat the fractal shape|
+|shape_width|float|Fractal width|
+|shape_height|float|Fractal height|
+|koch_uv|out vec2|Returns Koch fractal UV|
 ___

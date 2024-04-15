@@ -12,4 +12,21 @@ The Parallax Mapping node lets you create a parallax effect that displaces a Mat
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |uv|vec2|None|Output UV value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/UV/ParallaxMappingUV.gdshaderinc`
+
+**Method signature**
+<br>`vec2 parallax_mapping_uv(sampler2D height, float amplitude, vec2 uv, vec3 tangent, vec3 normal, vec3 binormal, vec3 view)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|height|sampler2D|Height map texture|
+|amplitude|float|amplitude or depth of the effect|
+|uv|vec2|Input uv|
+|tangent|vec3|Tangent vector|
+|normal|vec3|Normal vector|
+|binormal|vec3|Binormal vector|
+|view|vec3|View vector|
 ___

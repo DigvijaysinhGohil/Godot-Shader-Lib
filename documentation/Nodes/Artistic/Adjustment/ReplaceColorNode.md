@@ -15,4 +15,19 @@ Replaces values in input <b><i>in</i></b> equal to input <b><i>from</i></b> to t
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |out|vec3|None|Output value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Artistic/Adjustment/ReplaceColor.gdshaderinc`
+
+**Method signature**
+<br>`vec3 replace_color(input, from, to, range, fuzziness)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|input|vec3|Input color|
+|from|vec3|Color to replace|
+|to|vec3|Color to replace with|
+|range|float|Replace colors within this range from input <b><i>from</i></b>|
+|fuzziness|float|Soften edges around selection|
 ___
