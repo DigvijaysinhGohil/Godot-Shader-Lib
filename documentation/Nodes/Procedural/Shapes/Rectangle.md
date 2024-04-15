@@ -13,4 +13,17 @@ Generates a rectangle shape based on input UV at the size specified by inputs <b
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |output|float|None|Output rectangle value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Procedural/Shapes/Rectangle.gdshaderinc`
+
+**Method signature**
+<br>`float rectangle_shape(vec2 uv, float width, float height)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|uv|vec2|Input UV value|
+|width|float|Rectangle width|
+|height|float|Rectangle height|
 ___

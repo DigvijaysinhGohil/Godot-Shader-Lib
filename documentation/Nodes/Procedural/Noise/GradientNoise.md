@@ -12,4 +12,16 @@ Generates a gradient, or Perlin noise based on input UV. The resulting <b><i>out
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |output|float|None|Output noise value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Procedural/Noise/GradientNoise.gdshaderinc`
+
+**Method signature**
+<br>`float gradient_noise(vec2 uv, float scale)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|uv|vec2|Input UV value|
+|scale|float|Noise scale|
 ___
