@@ -26,8 +26,8 @@ Generates a rounded polygon shape based on input UV at the size specified by inp
 |Name|Type|Description|
 |---|---|---|
 |uv|vec2|Input UV value|
-|width|float|Ellipse width|
-|height|float|Ellipse height|
+|width|float|Polygon width|
+|height|float|Polygon height|
 |sides|float|Number of sides of the polygon|
 |roundness|float|Corner radius|
 ___
