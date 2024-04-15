@@ -54,7 +54,7 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 
 <h3>&emsp;Fractals</h3>
 
-<h4><a href="/documentation/Nodes/Procedural/Shapes/KochFractal.md">&emsp;&emsp;Koch Fractal node</a></h4>
+<h4><a href="/documentation/Nodes/Procedural/Fractals/KochFractal.md">&emsp;&emsp;Koch Fractal node</a></h4>
 
 <h3>&emsp;Noise</h3>
 
