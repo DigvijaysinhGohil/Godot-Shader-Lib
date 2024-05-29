@@ -1,8 +1,10 @@
 vec2 swirl_uv(vec2 uv, vec2 center, float strength, vec2 offset){
 	vec2 _delta = uv - center;
-	float _inverse_length = 1.0 - length(_delta);
-	float _angle = strength * _inverse_length;
-	float _x = cos(_angle) * _delta.x - sin(_angle) * _delta.y;
-	float _y = sin(_angle) * _delta.x + cos(_angle) * _delta.y;
-	return vec2(_x + center.x + offset.x, _y + center.y + offset.y);
+	float _angle = strength * pow(1. - length(_delta), 3);
+	mat2 _rotation = mat2(
+		vec2(cos(_angle), -sin(_angle)),
+		vec2(sin(_angle), cos(_angle))
+	);
+	_delta = _rotation * _delta;
+	return _delta + center;
 }
