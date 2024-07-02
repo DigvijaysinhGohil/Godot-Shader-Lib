@@ -3,7 +3,7 @@ Visual shader node library for Godot engine. The addon supports Godot versions 4
 
 Adds various extra nodes to use in built-in visual shader editor.
 
-### This version is now deprecated and is no longer supporeted.
+## This version is now deprecated and is no longer supported.
 
 # Installation
 Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standard visual shader nodes.
