@@ -1,5 +1,5 @@
 # Installation
-Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standard visual shader nodes.
+Hit download as zip button in the git repo. Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standard visual shader nodes.
 
 If you don't immediatly see new nodes under **_Addons_** category, simply reload your project.
 # Uninstallation
@@ -29,6 +29,11 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 <h4><a href="/documentation/Nodes/Geometry/Mesh.md">&emsp;Mesh node</a></h4>
 
 <h2>Maths nodes</h2>
+
+<h3>&emsp;Scalar</h3>
+
+<h4><a href="/documentation/Nodes/Maths/Scalar/SmoothMax.md">&emsp;&emsp;SmoothMax node</a></h4>
+<h4><a href="/documentation/Nodes/Maths/Scalar/SmoothMin.md">&emsp;&emsp;SmoothMin node</a></h4>
 
 <h3>&emsp;Vector</h3>
 

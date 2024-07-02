@@ -71,6 +71,10 @@ func _get_property_name(index: int) -> String:
 func _get_property_options(index: int) -> PackedStringArray:
 	return ["Vector1", "Vector2", "Vector3", "Vector4"]
 
+func _get_global_code(mode: Shader.Mode) -> String:
+	var code: String = preload("SquareWave.gdshaderinc").code
+	return code
+
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var input: String
 	var vector_index: int = get_option_index(0)
@@ -87,4 +91,12 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 	if input_vars[0]:
 		input = input_vars[0]
 
-	return output_vars[0] + " = 1.0 - 2.0 * round(fract(%s));" % [input]
+	match vector_index:
+		0:
+			return output_vars[0] + " = square_wave(vec4(%s)).x;" % [input]
+		1:
+			return output_vars[0] + " = square_wave(vec4(%s, 0.0, 0.0)).xy;" % [input]
+		2:
+			return output_vars[0] + " = square_wave(vec4(%s, 0.0)).xyz;" % [input]
+		_:
+			return output_vars[0] + " = square_wave(%s);" % [input]

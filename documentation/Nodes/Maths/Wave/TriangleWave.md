@@ -16,4 +16,15 @@ Returns a triangle wave from the value of input <b><i>in</i></b>. Resulting outp
 |Name|Type|Binding|Description|
 |---|---|---|---|
 |out|Dynamic vector|None|Output value|
+
+**ShaderInc location**
+<br>`res://addons/ShaderLib/Maths/Wave/TriangleWave.gdshaderinc`
+
+**Method signature**
+<br>`vec4 triangle_wave(vec4 input)`
+
+**Parameters**
+|Name|Type|Description|
+|---|---|---|
+|input|vec4|Input vector|
 ___

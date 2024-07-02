@@ -62,6 +62,10 @@ func _get_property_name(index: int) -> String:
 func _get_property_options(index: int) -> PackedStringArray:
 	return ["Vector2", "Vector3"]
 
+func _get_global_code(mode: Shader.Mode) -> String:
+	var code: String = preload("Project.gdshaderinc").code
+	return code
+
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var vector_a: String = input_vars[0]
 	var vector_b: String = input_vars[1]
@@ -69,6 +73,6 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 
 	match vector_index:
 		0:
-			return output_vars[0] + " = vec2(%s.xy) * (dot(%s.xy, %s.xy) / dot(%s.xy, %s.xy));" % [vector_b, vector_a, vector_b, vector_b, vector_b]
+			return output_vars[0] + " = project_2d(%s, %s);" % [vector_a, vector_b]
 		_:
-			return output_vars[0] + " = %s * (dot(%s, %s) / dot(%s, %s));" % [vector_b, vector_a, vector_b, vector_b, vector_b]
+			return output_vars[0] + " = project_3d(%s, %s);" % [vector_a, vector_b]
