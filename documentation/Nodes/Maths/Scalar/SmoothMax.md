@@ -1,5 +1,5 @@
 # SmoothMax node
-Returns the maximum value between A and B, but smooths out the intersections of A and B based on T. T is the smoothing value if passed 0 function will act as a standard max(), if negative value is passed it will act as <b><i>[SmoothMin node](/documentation/Nodes/Maths/Scalar/SmoothMin.md)</b></i>.
+Returns the maximum value between A and B, but smooths out the intersections of A and B based on T. T is the smoothing value. If 0 is passed at T, function will act as a standard max(), if negative value is passed it will act as <b><i>[SmoothMin node](/documentation/Nodes/Maths/Scalar/SmoothMin.md)</b></i>.
 <hr>
 
 **Inputs**
