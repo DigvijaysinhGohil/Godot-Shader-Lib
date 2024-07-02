@@ -1,5 +1,5 @@
 # Installation
-Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standard visual shader nodes.
+Hit download as zip button in the git repo. Copy the contents of **_addons/ShaderLib_** into the same folder in your project. No activation needed. Custom visual shader nodes work the same way as standard visual shader nodes.
 
 If you don't immediatly see new nodes under **_Addons_** category, simply reload your project.
 # Uninstallation
