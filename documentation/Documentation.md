@@ -30,6 +30,11 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 
 <h2>Maths nodes</h2>
 
+<h3>&emsp;Scalar</h3>
+
+<h4><a href="/documentation/Nodes/Maths/Scalar/SmoothMax.md">&emsp;&emsp;SmoothMax node</a></h4>
+<h4><a href="/documentation/Nodes/Maths/Scalar/SmoothMin.md">&emsp;&emsp;SmoothMin node</a></h4>
+
 <h3>&emsp;Vector</h3>
 
 <h3>&emsp;&emsp;Distance</h3>
