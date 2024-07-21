@@ -16,7 +16,7 @@ Generates a rounded rectangle shape based on input UV at the size specified by i
 |output|float|None|Output rounded rectangle value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/Shapes/RoundedRectangle.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`float rounded_rectangle_shape(vec2 uv, float width, float height, float radius)`

@@ -19,8 +19,7 @@ Returns the distance between two points using Manhattan distance matrix.
 |distance|float|None|Distance between 2 points|
 
 **ShaderInc location**
-<br>For 2D - `res://addons/ShaderLib/Maths/Vector/Distance/Manhattan2D.gdshaderinc`
-<br>For 3D - `res://addons/ShaderLib/Maths/Vector/Distance/Manhattan3D.gdshaderinc`
+<br>`res://addons/ShaderLib/Maths/Maths.gdshaderinc`
 
 **Method signature**
 <br>For 2D - `float manhattan_distance_2d(vec2 point1, vec2 point2)`

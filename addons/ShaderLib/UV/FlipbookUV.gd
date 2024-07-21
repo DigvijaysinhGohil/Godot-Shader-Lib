@@ -1,9 +1,6 @@
 @tool
 class_name VisualShaderNodeUVFlipbook extends VisualShaderNodeCustom
 
-func _init() -> void:
-	set_output_port_for_preview(0)
-
 func _get_name() -> String:
 	return "Flipbook"
 
@@ -60,8 +57,7 @@ func _get_output_port_type(port: int) -> VisualShaderNode.PortType:
 	return PORT_TYPE_VECTOR_2D
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("FlipbookUV.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/UV/UV.gdshaderinc\""
 
 func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
 	match mode:

@@ -15,7 +15,7 @@ Generates an ellipse shape based on input UV at the size specified by inputs <b>
 |output|float|None|Output ellipse value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/Shapes/Ellipse.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`float ellipse_shape(vec2 uv, float width, float height)`

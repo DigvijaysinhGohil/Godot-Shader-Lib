@@ -19,7 +19,7 @@ Offsets the hue of input <b><i>in</i></b> by the amount of input <b><i>offset</i
 |out|vec3|None|Output value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Artistic/Adjustment/Hue.gdshaderinc`
+<br>`res://addons/ShaderLib/Artistic/Artistic.gdshaderinc`
 
 **Method signature**
 <br>`vec3 hue(input, offset, range_index)`

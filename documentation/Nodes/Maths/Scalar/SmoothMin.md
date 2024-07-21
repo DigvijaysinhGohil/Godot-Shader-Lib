@@ -15,7 +15,7 @@ Returns the minimum value between A and B, but smooths out the intersections of 
 |op|float|None|Smooth minimum between A and B|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Maths/Scalar/SmoothMin.gdshaderinc`
+<br>`res://addons/ShaderLib/Maths/Maths.gdshaderinc`
 
 **Method signature**
 <br>`float smoothmin(float a, float b, float t)`

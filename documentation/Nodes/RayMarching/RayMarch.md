@@ -46,12 +46,12 @@ A simple ray marcher for primitive shapes.
 
 <hr>
 <h3>Extras</h3>
-This node is only simple ray marching example, the true power of raymarching can only be achieved by custom SDFs. At the moment I am unable to inject the custom code via visual shaders, so I have provided the custom template at the following location.<br><br>
+This node is only simple ray marching example, the true power of raymarching can only be achieved by custom SDFs. At the moment I am unable to inject the custom code via visual shaders, so I have provided the custom template at the following location. If you want to know more about raymarching check out this [playlist.](https://www.youtube.com/watch?v=68G3V5Yr8FY&list=PLaE0_uENxXqvzte-A0Ux2pav0zrUrTJ1V)<br><br>
 
 The default location can be found at<br>
-`res://addons/ShaderLib/RayMarching/RayMarchCustom.gdshaderinc`
+`res://addons/ShaderLib/RayMarching/RayMarchCustomTemplate.gdshaderinc`
 
-You can copy the code from `RayMarchCustom.gdshaderinc` and then create a <b><i>Global Expression</i></b> node and paste it in your visual shader.<br><br>
+You can copy the code from `RayMarchCustomTemplate.gdshaderinc` and then create a <b><i>Global Expression</i></b> node and paste it in your visual shader.<br><br>
 ![Global Expression Node](GlobalExpression.jpg)<br><br>
 Lastly you also need to create an <b><i>Expression</i></b> node, define required input and output parameters and call the custom ray marching function as below.<br><br>
 ![Expression Node](Expression.jpg)<br>

@@ -14,7 +14,7 @@ Projects a vector onto a plane defined by a normal orthogonal to the plane.
 |vector|vector3|None|Output vector|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Maths/Vector/ProjectOnPlane.gdshaderinc`
+<br>`res://addons/ShaderLib/Maths/Maths.gdshaderinc`
 
 **Method signature**
 <br>`vec3 project_on_plane(vec3 vector, vec3 plane_normal)`

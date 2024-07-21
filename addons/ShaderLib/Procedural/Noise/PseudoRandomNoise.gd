@@ -42,4 +42,4 @@ func _get_output_port_type(port: int) -> PortType:
 	return PORT_TYPE_SCALAR
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
-	return output_vars[0] + " = fract(sin(dot(UV.xy + vec2(%s), vec2(12.9898,78.233))) * 43758.5453123);" % input_vars[0]
+	return output_vars[0] + " = pseudo_random_noise(UV, %s);" % input_vars[0]

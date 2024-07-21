@@ -16,7 +16,7 @@ Generates a checkerboard of alternating colors between inputs <b><i>color A</i><
 |output|vec3|None|Output checkerboard value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/CheckerBoard.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`vec3 checker_board(vec2 uv, vec3 color_a, vec3 color_b, vec2 frequency)`

@@ -42,11 +42,10 @@ func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
 			return false
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("MeshNode.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/Geometry/Geometry.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var code: String
 	code = "%s = NODE_POSITION_WORLD;" % output_vars[0]
-	code += "\n%s = geometry_node_scale_world(MODEL_MATRIX);" % output_vars[1]
+	code += "\n%s = node_scale_world(MODEL_MATRIX);" % output_vars[1]
 	return code

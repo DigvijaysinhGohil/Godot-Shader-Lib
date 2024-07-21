@@ -1,9 +1,6 @@
 @tool
 class_name VisualShaderNodeUVRotate extends VisualShaderNodeCustom
 
-func _init() -> void:
-	set_output_port_for_preview(0)
-
 func _get_name() -> String:
 	return "Rotate"
 
@@ -68,8 +65,7 @@ func _get_property_options(index: int) -> PackedStringArray:
 	return ["Degrees", "Radians"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("RotateUV.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/UV/UV.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var uv: String

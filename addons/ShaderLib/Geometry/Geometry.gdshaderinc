@@ -1,4 +1,4 @@
-vec3 geometry_node_scale_world(mat4 model_matrix){
+vec3 node_scale_world(mat4 model_matrix){
 	vec3 _axis_x = model_matrix[0].xyz;
 	vec3 _axis_y = model_matrix[1].xyz;
 	vec3 _axis_z = model_matrix[2].xyz;

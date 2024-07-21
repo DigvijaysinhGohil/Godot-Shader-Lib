@@ -17,7 +17,7 @@ This node can be used to create a texture animation functionality, commonly used
 |uv|vec2|None|Output UV value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/UV/FlipbookUV.gdshaderinc`
+<br>`res://addons/ShaderLib/UV/UV.gdshaderinc`
 
 **Method signature**
 <br>`vec2 flipbook_uv(vec2 uv, int rows, int columns, float anim_speed)`

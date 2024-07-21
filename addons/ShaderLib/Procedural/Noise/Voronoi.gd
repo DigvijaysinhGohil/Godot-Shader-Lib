@@ -101,8 +101,7 @@ func _get_property_options(index: int) -> PackedStringArray:
 	return ["Euclidean", "Manhattan", "Chebyshev"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("Voronoi.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/Procedural/Procedural.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var uv: String = "UV"
