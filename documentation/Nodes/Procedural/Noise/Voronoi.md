@@ -22,7 +22,7 @@ Generates a Voronoi or Worley noise based on input UV. Voronoi noise is generate
 |cells|float|None|Raw cell data|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/Noise/Voronoi.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance_index, float chebyshev_power, out float output, out float cells)`

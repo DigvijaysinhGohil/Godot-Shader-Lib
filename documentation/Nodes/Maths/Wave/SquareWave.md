@@ -18,7 +18,7 @@ Returns a square wave from the value of input <b><i>in</i></b>. Resulting output
 |out|Dynamic vector|None|Output value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Maths/Wave/SquareWave.gdshaderinc`
+<br>`res://addons/ShaderLib/Maths/Maths.gdshaderinc`
 
 **Method signature**
 <br>`vec4 square	_wave(vec4 input)`

@@ -63,8 +63,7 @@ func _get_property_options(index: int) -> PackedStringArray:
 	return ["Vector2", "Vector3"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("Project.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/Maths/Maths.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var vector_a: String = input_vars[0]

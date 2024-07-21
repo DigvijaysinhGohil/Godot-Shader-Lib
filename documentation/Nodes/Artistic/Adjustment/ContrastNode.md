@@ -14,7 +14,7 @@ Adjusts the contrast of input <b><i>in</i></b> by the amount of input <b><i>cont
 |out|vec3|None|Output value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Artistic/Adjustment/Contrast.gdshaderinc`
+<br>`res://addons/ShaderLib/Artistic/Artistic.gdshaderinc`
 
 **Method signature**
 <br>`vec3 contrast(input, contrast)`

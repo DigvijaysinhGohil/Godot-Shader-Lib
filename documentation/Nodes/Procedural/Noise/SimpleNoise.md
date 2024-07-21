@@ -15,7 +15,7 @@ Generates a simplex, or value noise based on input UV. The resulting <b><i>outpu
 |output|float|None|Output noise value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/Noise/SimpleNoise.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`float simple_noise(vec2 uv, float scale, int octaves)`

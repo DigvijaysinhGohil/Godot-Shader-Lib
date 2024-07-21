@@ -17,7 +17,7 @@ Replaces values in input <b><i>in</i></b> equal to input <b><i>from</i></b> to t
 |out|vec3|None|Output value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Artistic/Adjustment/ReplaceColor.gdshaderinc`
+<br>`res://addons/ShaderLib/Artistic/Artistic.gdshaderinc`
 
 **Method signature**
 <br>`vec3 replace_color(input, from, to, range, fuzziness)`

@@ -16,7 +16,7 @@ Generates a regular polygon shape based on input UV at the size specified by inp
 |output|float|None|Output polygon value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/Shapes/Polygon.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`float polygon_shape(vec2 uv, int sides, float width, float height)`

@@ -16,7 +16,7 @@ Applies a radial shear warping effect similar to a wave to the value of input UV
 |uv|vec2|None|Output UV value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/UV/RadialShearUV.gdshaderinc`
+<br>`res://addons/ShaderLib/UV/UV.gdshaderinc`
 
 **Method signature**
 <br>`vec2 radial_shear_uv(vec2 uv, vec2 center, float strength, vec2 offset)`

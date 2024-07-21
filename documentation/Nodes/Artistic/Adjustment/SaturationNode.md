@@ -14,7 +14,7 @@ Adjusts the saturation of input <b><i>in</i></b> by the amount of input <b><i>sa
 |out|vec3|None|Output value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Artistic/Adjustment/Saturation.gdshaderinc`
+<br>`res://addons/ShaderLib/Artistic/Artistic.gdshaderinc`
 
 **Method signature**
 <br>`vec3 saturation(input, saturation)`

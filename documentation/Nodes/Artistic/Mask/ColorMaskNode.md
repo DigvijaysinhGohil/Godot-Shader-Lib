@@ -16,7 +16,7 @@ Creates a mask from values in input <b><i>in</i></b> equal to input <b><i>mask c
 |out|vec3|None|Output mask value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Artistic/Mask/ColorMask.gdshaderinc`
+<br>`res://addons/ShaderLib/Artistic/Artistic.gdshaderinc`
 
 **Method signature**
 <br>`vec4 color_mask(input, mask_color, range, fuzziness)`

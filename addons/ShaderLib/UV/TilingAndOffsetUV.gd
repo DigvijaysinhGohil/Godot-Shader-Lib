@@ -1,9 +1,6 @@
 @tool
 class_name VisualShaderNodeUVTilingAndOffset extends VisualShaderNodeCustom
 
-func _init() -> void:
-	output_port_for_preview = 0
-
 func _get_name() -> String:
 	return "TilingAndOffset"
 

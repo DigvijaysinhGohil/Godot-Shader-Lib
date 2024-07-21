@@ -15,7 +15,7 @@ Returns the maximum value between A and B, but smooths out the intersections of 
 |op|float|None|Smooth maximum between A and B|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Maths/Scalar/SmoothMax.gdshaderinc`
+<br>`res://addons/ShaderLib/Maths/Maths.gdshaderinc`
 
 **Method signature**
 <br>`float smoothmax(float a, float b, float t)`

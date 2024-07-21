@@ -183,21 +183,7 @@ func _get_output_port_type(port: int) -> PortType:
 	return PORT_TYPE_SCALAR
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String
-	var sdf_index: int = get_option_index(0)
-	code = preload("RayMarchRotation.gdshaderinc").code
-	match sdf_index:
-		0:
-			code += preload("SDBox.gdshaderinc").code
-		1:
-			code += preload("SDSphere.gdshaderinc").code
-		2:
-			code += preload("SDCapsule.gdshaderinc").code
-		3:
-			code += preload("SDCylinder.gdshaderinc").code
-		_:
-			code += preload("SDTorus.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/RayMarching/SignedDistanceFunctions.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var sdf_index: int = get_option_index(0)

@@ -53,14 +53,7 @@ func _get_property_options(index: int) -> PackedStringArray:
 	return ["Vector2", "Vector3"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String
-	var vector_index: int = get_option_index(0)
-	match vector_index:
-		0:
-			code = preload("Manhattan2D.gdshaderinc").code
-		_:
-			code = preload("Manhattan3D.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/Maths/Maths.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var point_a: String

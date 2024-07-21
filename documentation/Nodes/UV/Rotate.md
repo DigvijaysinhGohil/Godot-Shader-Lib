@@ -20,7 +20,7 @@ Rotates value of input UV around a reference point defined by input <b><i>center
 |uv|vec2|None|Output UV value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/UV/RotateUV.gdshaderinc`
+<br>`res://addons/ShaderLib/UV/UV.gdshaderinc`
 
 **Method signature**
 <br>`vec2 rotate_uv(vec2 uv, vec2 center, float rotation, bool use_degrees)`

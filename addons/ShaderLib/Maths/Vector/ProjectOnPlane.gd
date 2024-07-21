@@ -36,8 +36,7 @@ func _get_output_port_type(port: int) -> PortType:
 	return PORT_TYPE_VECTOR_3D
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("ProjectOnPlane.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/Maths/Maths.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var vector_a: String = input_vars[0]

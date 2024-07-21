@@ -59,8 +59,7 @@ func _get_property_options(index: int) -> PackedStringArray:
 	return ["Degrees", "Normalize"]
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("Hue.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/Artistic/Artistic.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var range_index: int = get_option_index(0)

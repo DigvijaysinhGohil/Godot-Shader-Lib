@@ -17,7 +17,7 @@ Generates a gyroid noise based on input UV. The resulting <b><i>output</i></b> v
 |output|float|None|Output noise value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Procedural/Noise/GyroidNoise.gdshaderinc`
+<br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
 <br>`float gyroid_noise(vec2 uv, float scale, vec2 ratio, float height, float thickness)`

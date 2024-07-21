@@ -55,8 +55,7 @@ func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
 			return false
 
 func _get_global_code(mode: Shader.Mode) -> String:
-	var code: String = preload("ParallaxMappingUV.gdshaderinc").code
-	return code
+	return "#include \"res://addons/ShaderLib/UV/UV.gdshaderinc\""
 
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var height_map: String = input_vars[0]

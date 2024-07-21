@@ -19,7 +19,7 @@ Projects <i><b>vector A</b></i> onto <i><b>vector B</b></i>.
 |vector|vector3|None|Output vector|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Maths/Vector/Project.gdshaderinc`
+<br>`res://addons/ShaderLib/Maths/Maths.gdshaderinc`
 
 **Method signature**
 <br>`vec2 project_2d(vec2 a, vec2 b)`

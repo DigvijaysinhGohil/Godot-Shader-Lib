@@ -15,7 +15,7 @@ Adjusts the temperature and tint of input <b><i>in</i></b> by the amount of inpu
 |out|vec3|None|Output value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/Artistic/Adjustment/WhiteBalance.gdshaderinc`
+<br>`res://addons/ShaderLib/Artistic/Artistic.gdshaderinc`
 
 **Method signature**
 <br>`vec3 white_balance(input, temperature, tint)`

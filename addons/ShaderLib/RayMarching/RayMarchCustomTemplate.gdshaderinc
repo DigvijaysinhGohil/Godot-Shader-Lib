@@ -1,3 +1,6 @@
+// For in depth ray marching or sphere tracing info check out the playlist
+// https://www.youtube.com/watch?v=68G3V5Yr8FY&list=PLaE0_uENxXqvzte-A0Ux2pav0zrUrTJ1V
+
 float sdf_custom(vec3 p) {
 	// Basic example of Sphere SDF with radius of .3
 	// Put your custom logic here

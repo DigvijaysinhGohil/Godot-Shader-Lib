@@ -16,7 +16,7 @@ Applies a swirl warping effect similar to a black hole to the value of input UV.
 |uv|vec2|None|Output UV value|
 
 **ShaderInc location**
-<br>`res://addons/ShaderLib/UV/SwirlUV.gdshaderinc`
+<br>`res://addons/ShaderLib/UV/UV.gdshaderinc`
 
 **Method signature**
 <br>`vec2 swirl_uv(vec2 uv, vec2 center, float strength, vec2 offset)`
