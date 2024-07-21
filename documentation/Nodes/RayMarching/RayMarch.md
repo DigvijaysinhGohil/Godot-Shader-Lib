@@ -46,7 +46,7 @@ A simple ray marcher for primitive shapes.
 
 <hr>
 <h3>Extras</h3>
-This node is only simple ray marching example, the true power of raymarching can only be achieved by custom SDFs. At the moment I am unable to inject the custom code via visual shaders, so I have provided the custom template at the following location. If you want to know more about raymarching check out this [playlist.](https://www.youtube.com/watch?v=68G3V5Yr8FY&list=PLaE0_uENxXqvzte-A0Ux2pav0zrUrTJ1V)<br><br>
+This node is only simple ray marching example, the true power of raymarching can only be achieved by custom SDFs. At the moment I am unable to inject the custom code via visual shaders, so I have provided the custom template at the following location. If you want to know more about raymarching check out this <a href ="https://www.youtube.com/playlist?list=PLaE0_uENxXqvzte-A0Ux2pav0zrUrTJ1V">playlist.</a><br><br>
 
 The default location can be found at<br>
 `res://addons/ShaderLib/RayMarching/RayMarchCustomTemplate.gdshaderinc`
