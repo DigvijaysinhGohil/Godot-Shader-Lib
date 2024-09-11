@@ -1,11 +1,11 @@
-vec3 node_scale_world(mat4 model_matrix){
-	vec3 _axis_x = model_matrix[0].xyz;
-	vec3 _axis_y = model_matrix[1].xyz;
-	vec3 _axis_z = model_matrix[2].xyz;
+vec3 node_scale_world(mat4 model_matrix) {
+	vec3 axis_x = model_matrix[0].xyz;
+	vec3 axis_y = model_matrix[1].xyz;
+	vec3 axis_z = model_matrix[2].xyz;
 
-	float _scale_x = length(_axis_x);
-	float _scale_y = length(_axis_y);
-	float _scale_z = length(_axis_z);
+	float scale_x = length(axis_x);
+	float scale_y = length(axis_y);
+	float scale_z = length(axis_z);
 
-	return vec3(_scale_x, _scale_y, _scale_z);
+	return vec3(scale_x, scale_y, scale_z);
 }

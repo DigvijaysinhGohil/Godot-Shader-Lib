@@ -1,9 +1,9 @@
-vec3 contrast(vec3 input, float contrast){
+vec3 contrast(vec3 input, float contrast) {
 	float midpoint = pow(0.5, 2.2);
 	return (input - midpoint) * contrast + midpoint;
 }
 
-vec3 hue(vec3 input, float offset, int range_index){
+vec3 hue(vec3 input, float offset, int range_index) {
 	// RGB to HSV
 	vec4 k = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
 	vec4 p = mix(vec4(input.bg, k.wz), vec4(input.gb, k.xy), step(input.b, input.g));
@@ -31,17 +31,17 @@ vec3 hue(vec3 input, float offset, int range_index){
 	return rgb;
 }
 
-vec3 replace_color(vec3 input, vec3 from, vec3 to, float range, float fuzziness){
+vec3 replace_color(vec3 input, vec3 from, vec3 to, float range, float fuzziness) {
 	float dist = distance(from, input);
 	return mix(to, input, clamp((dist - range) / max(fuzziness, 1.0e-5), 0.0, 1.0));
 }
 
-vec3 saturation(vec3 input, float saturation){
+vec3 saturation(vec3 input, float saturation) {
 	float luma = dot(input, vec3(0.2126729, 0.7151522, 0.0721750));
 	return luma + saturation * (input - vec3(luma));
 }
 
-vec3 white_balance(vec3 input, float temperature, float tint){
+vec3 white_balance(vec3 input, float temperature, float tint) {
 	float t1 = temperature * 10.0 / 6.0;
 	float t2 = tint * 10.0 / 6.0;
 
@@ -78,7 +78,7 @@ vec3 white_balance(vec3 input, float temperature, float tint){
 	return LMS_2_LIN_MAT * lms;
 }
 
-vec4 color_mask(vec3 input, vec3 mask_color, float range, float fuzziness){
+vec4 color_mask(vec3 input, vec3 mask_color, float range, float fuzziness) {
 	float dist = distance(mask_color, input);
 	return vec4(clamp(1. - (dist - range) / max(fuzziness, 1e-5), 0., 1.));
 }

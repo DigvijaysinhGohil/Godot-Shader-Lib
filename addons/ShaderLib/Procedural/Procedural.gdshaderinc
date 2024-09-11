@@ -1,19 +1,19 @@
 #include "res://addons/ShaderLib/Maths/Maths.gdshaderinc"
 
-vec3 checker_board(vec2 uv, vec3 color_a, vec3 color_b, vec2 frequency){
+vec3 checker_board(vec2 uv, vec3 color_a, vec3 color_b, vec2 frequency) {
 	uv = (uv.xy + 0.5) * frequency;
-	vec4 _derivatives = vec4(dFdx(uv), dFdy(uv));
-	vec2 _duv_length = sqrt(vec2(dot(_derivatives.xz, _derivatives.xz), dot(_derivatives.yw, _derivatives.yw)));
-	float _width = 1.0;
-	vec2 _distance3 = 4.0 * abs(fract(uv + 0.25) - 0.5) - _width;
-	vec2 _scale = 0.35 / _duv_length.xy;
-	float _frequency_limiter = sqrt(clamp(1.1f - max(_duv_length.x, _duv_length.y), 0.0, 1.0));
-	vec2 _vector_alpha = clamp(_distance3 * _scale.xy, -1.0, 1.0);
-	float _alpha = clamp(0.5f + 0.5f * _vector_alpha.x * _vector_alpha.y * _frequency_limiter, 0.0, 1.0);
-	return mix(color_b, color_a, _alpha);
+	vec4 derivatives = vec4(dFdx(uv), dFdy(uv));
+	vec2 duv_length = sqrt(vec2(dot(derivatives.xz, derivatives.xz), dot(derivatives.yw, derivatives.yw)));
+	float width = 1.0;
+	vec2 distance3 = 4.0 * abs(fract(uv + 0.25) - 0.5) - width;
+	vec2 scale = 0.35 / duv_length.xy;
+	float frequency_limiter = sqrt(clamp(1.1f - max(duv_length.x, duv_length.y), 0.0, 1.0));
+	vec2 vector_alpha = clamp(distance3 * scale.xy, -1.0, 1.0);
+	float alpha = clamp(0.5f + 0.5f * vector_alpha.x * vector_alpha.y * frequency_limiter, 0.0, 1.0);
+	return mix(color_b, color_a, alpha);
 }
 
-vec2 koch_fractal_direction(float angle){
+vec2 koch_fractal_direction(float angle) {
 	return vec2(sin(angle), cos(angle));
 }
 
@@ -50,33 +50,33 @@ float koch_fractal(vec2 uv, float outline, int iteration, float shape_width, flo
 	return 1.0 - dist;
 }
 
-vec2 gradient_modulo(vec2 divident, vec2 divisor){
-	vec2 _positive_divident = mod(divident, divisor) + divisor;
-	return mod(_positive_divident, divisor);
+vec2 gradient_modulo(vec2 divident, vec2 divisor) {
+	vec2 positive_divident = mod(divident, divisor) + divisor;
+	return mod(positive_divident, divisor);
 }
 
-vec2 gradient_random(vec2 uv){
+vec2 gradient_random(vec2 uv) {
 	uv = vec2(dot(uv, vec2(127.1,311.7)), dot(uv, vec2(269.5,183.3)));
 	return -1.0 + 2.0 * fract(sin(uv) * 43758.5453123);
 }
 
 float gradient_noise(vec2 uv, float scale) {
 	uv = uv * float(scale);
-	vec2 _period = vec2(30.0, 60.0);
-	vec2 _cells_minimum = floor(uv);
-	vec2 _cells_maximum = ceil(uv);
-	vec2 _uv_fract = fract(uv);
-	_cells_minimum = gradient_modulo(_cells_minimum, _period);
-	_cells_maximum = gradient_modulo(_cells_maximum, _period);
-	vec2 _blur = smoothstep(0.0, 1.0, _uv_fract);
-	vec2 _lowerLeftDirection = gradient_random(vec2(_cells_minimum.x, _cells_minimum.y));
-	vec2 _lowerRightDirection = gradient_random(vec2(_cells_maximum.x, _cells_minimum.y));
-	vec2 _upperLeftDirection = gradient_random(vec2(_cells_minimum.x, _cells_maximum.y));
-	vec2 _upperRightDirection = gradient_random(vec2(_cells_maximum.x, _cells_maximum.y));
-	vec2 _fraction = fract(uv);
-	float _mix_one = mix(dot(_lowerLeftDirection, _fraction - vec2(0, 0)), dot(_lowerRightDirection, _fraction - vec2(1, 0)), _blur.x);
-	float _mix_two = mix(dot(_upperLeftDirection, _fraction - vec2(0, 1)), dot(_upperRightDirection, _fraction - vec2(1, 1)), _blur.x);
-	return mix(_mix_one, _mix_two, _blur.y) * 0.8 + 0.5;
+	vec2 period = vec2(30.0, 60.0);
+	vec2 cells_minimum = floor(uv);
+	vec2 cells_maximum = ceil(uv);
+	vec2 uv_fract = fract(uv);
+	cells_minimum = gradient_modulo(cells_minimum, period);
+	cells_maximum = gradient_modulo(cells_maximum, period);
+	vec2 blur = smoothstep(0.0, 1.0, uv_fract);
+	vec2 lowerLeftDirection = gradient_random(vec2(cells_minimum.x, cells_minimum.y));
+	vec2 lowerRightDirection = gradient_random(vec2(cells_maximum.x, cells_minimum.y));
+	vec2 upperLeftDirection = gradient_random(vec2(cells_minimum.x, cells_maximum.y));
+	vec2 upperRightDirection = gradient_random(vec2(cells_maximum.x, cells_maximum.y));
+	vec2 fraction = fract(uv);
+	float mix_one = mix(dot(lowerLeftDirection, fraction - vec2(0, 0)), dot(lowerRightDirection, fraction - vec2(1, 0)), blur.x);
+	float mix_two = mix(dot(upperLeftDirection, fraction - vec2(0, 1)), dot(upperRightDirection, fraction - vec2(1, 1)), blur.x);
+	return mix(mix_one, mix_two, blur.y) * 0.8 + 0.5;
 }
 
 float gyroid_noise(vec2 uv, float scale, vec2 ratio, float height, float thickness) {
@@ -166,59 +166,59 @@ void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance
 	cells = cell_id.y;
 }
 
-float ellipse_shape(vec2 uv, float width, float height){
-	float _distance = length((uv * 2.0 - 1.0) / vec2(width, height));
-	return clamp((1.0 - _distance) / fwidth(_distance), 0.0, 1.0);
+float ellipse_shape(vec2 uv, float width, float height) {
+	float dist = length((uv * 2.0 - 1.0) / vec2(width, height));
+	return clamp((1.0 - dist) / fwidth(dist), 0.0, 1.0);
 }
 
-float polygon_shape(vec2 uv, int sides, float width, float height){
-	float _a_width = width * cos(PI / float(sides));
-	float _a_height = height * cos(PI / float(sides));
-	uv = (uv * 2.0 - 1.0) / vec2(_a_width, _a_height);
+float polygon_shape(vec2 uv, int sides, float width, float height) {
+	float a_width = width * cos(PI / float(sides));
+	float a_height = height * cos(PI / float(sides));
+	uv = (uv * 2.0 - 1.0) / vec2(a_width, a_height);
 	uv.y *= -1.0;
-	float _polar_coords = atan(uv.x, uv.y);
-	float _radius = 2.0 * PI / float(sides);
-	float _distance = cos(floor(0.5 + _polar_coords / _radius) * _radius - _polar_coords) * length(uv);
-	return clamp((1.0 - _distance) / fwidth(_distance), 0.0, 1.0);
+	float polar_coords = atan(uv.x, uv.y);
+	float radius = 2.0 * PI / float(sides);
+	float dist = cos(floor(0.5 + polar_coords / radius) * radius - polar_coords) * length(uv);
+	return clamp((1.0 - dist) / fwidth(dist), 0.0, 1.0);
 }
 
-float rectangle_shape(vec2 uv, float width, float height){
-    vec2 _distance = abs(uv * 2.0 - 1.0) - vec2(width, height);
-    _distance = 1.0 - _distance / fwidth(_distance);
-    return clamp(min(_distance.x, _distance.y), 0.0, 1.0);
+float rectangle_shape(vec2 uv, float width, float height) {
+    vec2 dist = abs(uv * 2.0 - 1.0) - vec2(width, height);
+    dist = 1.0 - dist / fwidth(dist);
+    return clamp(min(dist.x, dist.y), 0.0, 1.0);
 }
 
 float rounded_polygon_shape(vec2 uv, float width, float height, float sides, float roundness){
 	uv = uv * 2.0 + vec2(-1.0);
 	roundness /= 10.0;
-	float _epsilon = 1e-6;
-	uv.x = uv.x / ( width + ((width>-_epsilon && width<_epsilon) ? 1.0 : 0.0 * _epsilon));
-	uv.y = uv.y / ( height +  ((height>-_epsilon && height<_epsilon) ? 1.0 : 0.0 * _epsilon));
+	float epsilon = 1e-6;
+	uv.x = uv.x / ( width + ((width > -epsilon && width < epsilon) ? 1.0 : 0.0 * epsilon));
+	uv.y = uv.y / ( height +  ((height > -epsilon && height < epsilon) ? 1.0 : 0.0 * epsilon));
 	roundness = clamp(roundness, 1e-6, 1.0);
-	float _i_sides = floor( abs( sides ) );
-	float _full_angle = 2.0 * PI / _i_sides;
-	float _half_angle = _full_angle / 2.;
-	float _diagonal = 1.0 / cos( _half_angle );
-	float _chamfer_angle = roundness * _half_angle;
-	float _remaining_angle = _half_angle - _chamfer_angle;
-	float _ratio = tan(_remaining_angle) / tan(_half_angle);
-	vec2 _chamfer_center = vec2(cos(_half_angle) , sin(_half_angle))* _ratio * _diagonal;
+	float i_sides = floor( abs( sides ) );
+	float full_angle = 2.0 * PI / i_sides;
+	float half_angle = full_angle / 2.;
+	float diagonal = 1.0 / cos( half_angle );
+	float chamfer_angle = roundness * half_angle;
+	float remaining_angle = half_angle - chamfer_angle;
+	float ratio = tan(remaining_angle) / tan(half_angle);
+	vec2 chamfer_center = vec2(cos(half_angle) , sin(half_angle))* ratio * diagonal;
 
-	float _dist_a = length(_chamfer_center);
-	float _dist_b = 1.0 - _chamfer_center.x;
-	float _uv_scale = _diagonal;
-	uv *= _uv_scale;
-	vec2 _polar_uv = vec2(atan(uv.y, uv.x), length(uv));
+	float dist_a = length(chamfer_center);
+	float dist_b = 1.0 - chamfer_center.x;
+	float uv_scale = diagonal;
+	uv *= uv_scale;
+	vec2 polar_uv = vec2(atan(uv.y, uv.x), length(uv));
 
-	_polar_uv.x += PI / 2.0 + TAU;
-	_polar_uv.x = mod(_polar_uv.x + _half_angle, _full_angle );
-	_polar_uv.x = abs(_polar_uv.x - _half_angle);
-	uv = vec2(cos(_polar_uv.x), sin(_polar_uv.x)) * _polar_uv.y;
-	float _angle_ratio = 1.0 - (_polar_uv.x-_remaining_angle) / _chamfer_angle;
-	float _dist_c = sqrt(_dist_a * _dist_a + _dist_b * _dist_b - 2.0 * _dist_a *_dist_b * cos(PI - _half_angle * _angle_ratio));
+	polar_uv.x += PI / 2.0 + TAU;
+	polar_uv.x = mod(polar_uv.x + half_angle, full_angle );
+	polar_uv.x = abs(polar_uv.x - half_angle);
+	uv = vec2(cos(polar_uv.x), sin(polar_uv.x)) * polar_uv.y;
+	float angle_ratio = 1.0 - (polar_uv.x- remaining_angle) / chamfer_angle;
+	float dist_c = sqrt(dist_a * dist_a + dist_b * dist_b - 2.0 * dist_a * dist_b * cos(PI - half_angle * angle_ratio));
 	float output = uv.x;
-	float _chamfer_zone = (_half_angle - _polar_uv.x) < _chamfer_angle ? 1.0 : 0.0;
-	output = mix(uv.x, _polar_uv.y / _dist_c, _chamfer_zone);
+	float chamfer_zone = (half_angle - polar_uv.x) < chamfer_angle ? 1.0 : 0.0;
+	output = mix(uv.x, polar_uv.y / dist_c, chamfer_zone);
 	output = clamp((1.0 - output) / fwidth(output), 0.0, 1.0);
 	return output;
 }
@@ -227,6 +227,6 @@ float rounded_rectangle_shape(vec2 uv, float width, float height, float radius){
 	radius /= 10.0;
 	radius = max(min(min(abs(radius * 2.0), abs(width)), abs(height)), 1e-5);
 	uv = abs(uv * 2.0 - 1.0) - vec2(width, height) + radius;
-	float _distance = length(max(vec2(0.0), uv)) / radius;
-	return clamp((1.0 - _distance) / fwidth(_distance), 0.0, 1.0);
+	float dist = length(max(vec2(0.0), uv)) / radius;
+	return clamp((1.0 - dist) / fwidth(dist), 0.0, 1.0);
 }
