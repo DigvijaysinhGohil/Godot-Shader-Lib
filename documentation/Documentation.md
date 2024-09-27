@@ -56,6 +56,7 @@ For example if you want to rotate UV in your **_.gdshader_** file, you can use `
 <h2>Procedural nodes</h2>
 
 <h4><a href="/documentation/Nodes/Procedural/CheckerBoard.md">&emsp;Checker Board node</a></h4>
+<h4><a href="/documentation/Nodes/Procedural/HeightToNormal.md">&emsp;Height To Normal node</a></h4>
 
 <h3>&emsp;Fractals</h3>
 
