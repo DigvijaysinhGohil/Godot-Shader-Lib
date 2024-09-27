@@ -230,3 +230,18 @@ float rounded_rectangle_shape(vec2 uv, float width, float height, float radius){
 	float dist = length(max(vec2(0.0), uv)) / radius;
 	return clamp((1.0 - dist) / fwidth(dist), 0.0, 1.0);
 }
+
+vec3 heigth_to_normal(sampler2D height_map, vec2 uv, float bump_strength) {
+	float pixel_width = .002;
+	float height = texture(height_map, uv).r;
+	float r = height - texture(height_map, uv + vec2(pixel_width, 0)).r;
+	float l = height - texture(height_map, uv - vec2(pixel_width, 0)).r;
+	float u = height - texture(height_map, uv + vec2(0, pixel_width)).r;
+	float d = height - texture(height_map, uv - vec2(0, pixel_width)).r;
+	float h = (r - l) / pixel_width;
+    float v = (u - d) / pixel_width;
+	vec3 n = vec3(h, v, 1.);
+	n.x = n.x * (pixel_width * bump_strength * .5) + .5;
+	n.y = n.y * (pixel_width * bump_strength * .5) + .5;
+	return normalize(n);
+}
