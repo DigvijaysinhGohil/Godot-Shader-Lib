@@ -25,7 +25,9 @@ Generates a Voronoi or Worley noise based on input UV. Voronoi noise is generate
 <br>`res://addons/ShaderLib/Procedural/Procedural.gdshaderinc`
 
 **Method signature**
-<br>`void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance_index, float chebyshev_power, out float output, out float cells)`
+<br>`float voronoi_noise_euclidean(vec2 uv, float cell_density, float angle_offset, out float cells)`
+<br>`float voronoi_noise_manhattan(vec2 uv, float cell_density, float angle_offset, out float cells)`
+<br>`float voronoi_noise_chebyshev(vec2 uv, float cell_density, float angle_offset, float chebyshev_power, out float cells)`
 
 **Parameters**
 |Name|Type|Description|
@@ -33,8 +35,6 @@ Generates a Voronoi or Worley noise based on input UV. Voronoi noise is generate
 |uv|vec2|Input UV value|
 |cell_density|float|Density of generated cells|
 |angle_offset|float|Offset values for points|
-|distance_index|int|Distance matrix to use for Voronoi, 0 = Euclidean, 1 = Manhattan, 2 = Chebyshev|
 |chebyshev_power|float|Power for Chebyshev distance|
-|output|out float|Output noise value|
 |cells|out float|Output raw cell data|
 ___
