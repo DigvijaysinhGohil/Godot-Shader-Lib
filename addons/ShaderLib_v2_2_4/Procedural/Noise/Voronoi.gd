@@ -1,9 +1,6 @@
 @tool
 class_name VisualShaderNodeProceduralVoronoi extends ShaderLib
 
-func _init() -> void:
-	output_port_for_preview = 0
-
 func _get_name() -> String:
 	return "Voronoi"
 
@@ -63,7 +60,7 @@ func _get_input_port_default_value(port: int) -> Variant:
 				2:
 					return 2.0
 				3:
-					return 2.0
+					return 5.0
 				_:
 					return null
 		_:
@@ -113,13 +110,15 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 
 	var cell_density: String = input_vars[1]
 	var angle_offset: String = input_vars[2]
-	var chebyshev_power: String = "0."
-
-	if distance_index == 2:
-		if input_vars[3]:
-			chebyshev_power = input_vars[3]
 
 	var output: String = output_vars[0]
 	var cells: String = output_vars[1]
 
-	return "voronoi_noise(%s, %s, %s, %s, %s, %s, %s);" % [uv, cell_density, angle_offset, distance_index, chebyshev_power, output, cells]
+	match distance_index:
+		1:
+			return "%s = voronoi_noise_manhattan(%s, %s, %s, %s);" % [output, uv, cell_density, angle_offset, cells]
+		2:
+			var chebyshev_power: String = input_vars[3]
+			return "%s = voronoi_noise_chebyshev(%s, %s, %s, %s, %s);" % [output, uv, cell_density, angle_offset, chebyshev_power, cells]
+		_:
+			return "%s = voronoi_noise_euclidean(%s, %s, %s, %s);" % [output, uv, cell_density, angle_offset, cells]

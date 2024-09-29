@@ -130,7 +130,7 @@ vec2 voronoi_random_vector(vec2 p) {
 	return fract(sin(p * matrix) * 46839.32);
 }
 
-void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance_index, float chebyshev_power, out float output, out float cells){
+float voronoi_noise_euclidean(vec2 uv, float cell_density, float angle_offset, out float cells){
 	vec2 grid_uv = fract(uv * cell_density);
 	vec2 grid_id = floor(uv * cell_density);
 	vec2 cell_id = vec2(0);
@@ -142,18 +142,31 @@ void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance
 			vec2 n = voronoi_random_vector(grid_id + offset);
 			vec2 p = offset + vec2(sin(n.x + angle_offset) * .5 + .5, cos(n.y + angle_offset) * .5 + .5);
 			float d = min_dist;
-
-			switch(distance_index){
-				case 1:
-					d = manhattan_distance_2d(grid_uv, p);
-					break;
-				case 2:
-					d = chebyshev_distance_2d(grid_uv, p, chebyshev_power);
-					break;
-				default:
-					d = distance(grid_uv, p);
-					break;
+			d = distance(grid_uv, p);
+			if(d < min_dist) {
+				min_dist = d;
+				cell_id = voronoi_random_vector(grid_id + offset);
 			}
+		}
+	}
+
+	cells = cell_id.y;
+	return min_dist;
+}
+
+float voronoi_noise_manhattan(vec2 uv, float cell_density, float angle_offset, out float cells){
+	vec2 grid_uv = fract(uv * cell_density);
+	vec2 grid_id = floor(uv * cell_density);
+	vec2 cell_id = vec2(0);
+	float min_dist = 100.;
+
+	for(float y = -1.; y <= 1.; y++) {
+		for(float x = -1.; x <= 1.; x++) {
+			vec2 offset = vec2(x, y);
+			vec2 n = voronoi_random_vector(grid_id + offset);
+			vec2 p = offset + vec2(sin(n.x + angle_offset) * .5 + .5, cos(n.y + angle_offset) * .5 + .5);
+			float d = min_dist;
+			d = manhattan_distance_2d(grid_uv, p);
 
 			if(d < min_dist) {
 				min_dist = d;
@@ -162,8 +175,33 @@ void voronoi_noise(vec2 uv, float cell_density, float angle_offset, int distance
 		}
 	}
 
-	output = min_dist;
 	cells = cell_id.y;
+	return min_dist;
+}
+
+float voronoi_noise_chebyshev(vec2 uv, float cell_density, float angle_offset, float chebyshev_power, out float cells){
+	vec2 grid_uv = fract(uv * cell_density);
+	vec2 grid_id = floor(uv * cell_density);
+	vec2 cell_id = vec2(0);
+	float min_dist = 100.;
+
+	for(float y = -1.; y <= 1.; y++) {
+		for(float x = -1.; x <= 1.; x++) {
+			vec2 offset = vec2(x, y);
+			vec2 n = voronoi_random_vector(grid_id + offset);
+			vec2 p = offset + vec2(sin(n.x + angle_offset) * .5 + .5, cos(n.y + angle_offset) * .5 + .5);
+			float d = min_dist;
+			d = chebyshev_distance_2d(grid_uv, p, chebyshev_power);
+
+			if(d < min_dist) {
+				min_dist = d;
+				cell_id = voronoi_random_vector(grid_id + offset);
+			}
+		}
+	}
+
+	cells = cell_id.y;
+	return min_dist;
 }
 
 float ellipse_shape(vec2 uv, float width, float height) {
