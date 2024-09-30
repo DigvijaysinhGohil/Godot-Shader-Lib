@@ -32,11 +32,11 @@ func _get_output_port_type(port: int) -> PortType:
 	return PORT_TYPE_VECTOR_3D
 
 func _get_property_count() -> int:
-	return 2
+	return 3
 
 func _get_property_default_index(index: int) -> int:
 	match index:
-		0:
+		0, 1:
 			return 0
 		_:
 			return 1
@@ -44,24 +44,29 @@ func _get_property_default_index(index: int) -> int:
 func _get_property_name(index: int) -> String:
 	match index:
 		0:
+			return "Vector Type"
+		1:
 			return "From"
 		_:
 			return "To"
 
 func _get_property_options(index: int) -> PackedStringArray:
-	return ["Local", "World", "View", "Screen", "Tangent"]
+	match index:
+		0:
+			return ["Positional", "Directional"]
+		_:
+			return ["Local", "World", "View", "Clip", "Tangent"]
 
 func _is_available(mode: Shader.Mode, type: VisualShader.Type) -> bool:
 	return mode == Shader.MODE_SPATIAL
 
-func _get_global_code(mode: Shader.Mode) -> String:
-	return "#include \"res://addons/ShaderLib_%s/Maths/Maths.gdshaderinc\"" % [version]
-
 func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shader.Mode, type: VisualShader.Type) -> String:
 	var code: String
-	var from_coord_space_index: int = get_option_index(0)
-	var to_coord_space_index: int = get_option_index(1)
+	var vector_type: int = get_option_index(0)
+	var from_coord_space_index: int = get_option_index(1)
+	var to_coord_space_index: int = get_option_index(2)
 	var input_vector: String = input_vars[0] if input_vars[0] else "vec3(0.0, 0.0, 0.0)"
+	var w_component: String = "1.0" if vector_type == 0 else "0.0"
 
 	match from_coord_space_index:
 		0:
@@ -69,59 +74,79 @@ func _get_code(input_vars: Array[String], output_vars: Array[String], mode: Shad
 				0:
 					code = "%s = %s;" % [output_vars[0], input_vector]
 				1:
-					code = "%s = vector_transform_local_to_world(MODEL_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (MODEL_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				2:
-					code = "%s = vector_transform_local_to_view(MODEL_MATRIX, VIEW_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (VIEW_MATRIX * MODEL_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				3:
-					code = "%s = vector_transform_local_to_screen(MODEL_MATRIX, VIEW_MATRIX, PROJECTION_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (PROJECTION_MATRIX * VIEW_MATRIX * MODEL_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				4:
-					code = "%s = vector_transform_local_to_tangent(NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code = """
+vec3 normal = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+mat4 local_to_tangent_mat = mat4(vec4(TANGENT, 1.0), vec4(BINORMAL, 1.0), vec4(normal, 1.0), vec4(0.0, 0.0, 0.0, 1.0));
+"""
+					code += "%s = (local_to_tangent_mat * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 		1:
 			match to_coord_space_index:
 				0:
-					code = "%s = vector_transform_world_to_local(MODEL_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (inverse(MODEL_MATRIX) * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				1:
 					code = "%s = %s;" % [output_vars[0], input_vector]
 				2:
-					code = "%s = vector_transform_world_to_view(VIEW_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (VIEW_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				3:
-					code = "%s = vector_transform_world_to_screen(VIEW_MATRIX, PROJECTION_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s =(PROJECTION_MATRIX * VIEW_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				4:
-					code = "%s = vector_transform_world_to_tangent(MODEL_MATRIX, NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code = """
+vec3 normal = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+mat4 local_to_tangent_mat = mat4(vec4(TANGENT, 1.0), vec4(BINORMAL, 1.0), vec4(normal, 1.0), vec4(0.0, 0.0, 0.0, 1.0));
+"""
+					code += "%s = (local_to_tangent_mat * inverse(MODEL_MATRIX) * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 		2:
 			match to_coord_space_index:
 				0:
-					code = "%s = vector_transform_view_to_local(INV_VIEW_MATRIX, MODEL_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				1:
-					code = "%s = vector_transform_view_to_world(INV_VIEW_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (INV_VIEW_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				2:
 					code = "%s = %s;" % [output_vars[0], input_vector]
 				3:
-					code = "%s = vector_transform_view_to_screen(PROJECTION_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (PROJECTION_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				4:
-					code = "%s = vector_transform_view_to_tangent(INV_VIEW_MATRIX, MODEL_MATRIX, NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code = """
+vec3 normal = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+mat4 local_to_tangent_mat = mat4(vec4(TANGENT, 1.0), vec4(BINORMAL, 1.0), vec4(normal, 1.0), vec4(0.0, 0.0, 0.0, 1.0));
+"""
+					code += "%s = (local_to_tangent_mat * inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 		3:
 			match to_coord_space_index:
 				0:
-					code = "%s = vector_transform_screen_to_local(INV_PROJECTION_MATRIX, INV_VIEW_MATRIX, MODEL_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				1:
-					code = "%s = vector_transform_screen_to_world(INV_PROJECTION_MATRIX, INV_VIEW_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				2:
-					code = "%s = vector_transform_screen_to_view(INV_PROJECTION_MATRIX, %s);" % [output_vars[0], input_vector]
+					code = "%s = (INV_PROJECTION_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				3:
 					code = "%s = %s;" % [output_vars[0], input_vector]
 				4:
-					code = "%s = vector_transform_screen_to_tangent(INV_PROJECTION_MATRIX, INV_VIEW_MATRIX, MODEL_MATRIX, NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code = """
+vec3 normal = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+mat4 local_to_tangent_mat = mat4(vec4(TANGENT, 1.0), vec4(BINORMAL, 1.0), vec4(normal, 1.0), vec4(0.0, 0.0, 0.0, 1.0));
+"""
+					code += "%s = (local_to_tangent_mat * inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 		4:
+			code = """
+vec3 normal = (inverse(MODEL_MATRIX) * INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+mat4 tangent_to_local_mat = inverse(mat4(vec4(TANGENT, 1.0), vec4(BINORMAL, 1.0), vec4(normal, 1.0), vec4(0.0, 0.0, 0.0, 1.0)));
+"""
 			match to_coord_space_index:
 				0:
-					code = "%s = vector_transform_tangent_to_local(NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code += "%s = (tangent_to_local_mat * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				1:
-					code = "%s = vector_transform_tangent_to_world(MODEL_MATRIX, NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code += "%s = (MODEL_MATRIX * tangent_to_local_mat * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				2:
-					code = "%s = vector_transform_tangent_to_view(MODEL_MATRIX, VIEW_MATRIX, NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code += "%s = (VIEW_MATRIX * MODEL_MATRIX * tangent_to_local_mat * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				3:
-					code = "%s = vector_transform_tangent_to_screen(MODEL_MATRIX, VIEW_MATRIX, PROJECTION_MATRIX, NORMAL, BINORMAL, TANGENT, %s);" % [output_vars[0], input_vector]
+					code += "%s = (PROJECTION_MATRIX * VIEW_MATRIX * MODEL_MATRIX * tangent_to_local_mat * vec4(%s, %s)).xyz;" % [output_vars[0], input_vector, w_component]
 				4:
 					code = "%s = %s;" % [output_vars[0], input_vector]
 

@@ -10,6 +10,7 @@ Returns the transformed vector of the input value <i><b>in</b></i> from one coor
 **Controls**
 |Name|Options|Description|
 |---|---|---|
+|Vector type|Positional, Directional|Positional will take into account translation data, Directional won't|
 |From|Local, World, View, Screen, Tangent|Coordinate space from which you want to transform the input vector|
 |To|Local, World, View, Screen, Tangent|Coordinate space to which you want to transform the input vector|
   
